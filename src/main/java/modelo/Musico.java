@@ -1,6 +1,5 @@
 package modelo;
 
-import java.sql.Blob;
 import java.util.List;
 
 import jakarta.persistence.Entity;
