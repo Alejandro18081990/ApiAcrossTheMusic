@@ -1,5 +1,7 @@
 package modelo;
 
+import java.sql.Blob;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
@@ -14,7 +16,7 @@ public class Video {
 
 	@Id
 	private long idVideo;
-	private String localizacionVideo;
+	private Blob video;
 	
 	@ManyToOne
 	@JoinColumn(name = "idMusico")
