@@ -5,26 +5,25 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
-import jakarta.persistence.JoinColumns;
 import jakarta.persistence.ManyToOne;
+import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 
 @Data
-@NoArgsConstructor
+@AllArgsConstructor
 @Entity
-public class MusicoTocaInstrumento {
+public class MusicoTocaGrupo {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
-
+	
 	@ManyToOne
-	@JoinColumns({ @JoinColumn(name = "idMusico"), @JoinColumn(name = "email") })
+	@JoinColumn(name="idMusico")
 	private Musico musico;
-
+	
 	@ManyToOne
-	@JoinColumn(name = "idInstrumento")
-	private Instrumento instrumento;
-
+	@JoinColumn(name="idGrupo")
+	private Grupo grupo;
+	
 }

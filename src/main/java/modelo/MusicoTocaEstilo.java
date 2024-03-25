@@ -7,13 +7,13 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.JoinColumns;
 import jakarta.persistence.ManyToOne;
+import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 
 @Data
-@NoArgsConstructor
+@AllArgsConstructor
 @Entity
-public class MusicoTocaInstrumento {
+public class MusicoTocaEstilo {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -24,7 +24,7 @@ public class MusicoTocaInstrumento {
 	private Musico musico;
 
 	@ManyToOne
-	@JoinColumn(name = "idInstrumento")
-	private Instrumento instrumento;
+	@JoinColumn(name = "idEstilo")
+	private Estilo estilo;
 
 }
