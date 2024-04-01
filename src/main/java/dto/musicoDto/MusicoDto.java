@@ -12,6 +12,6 @@ public class MusicoDto {
 	private String email;
 	private String nombre;
 	private int edad;
-	private int aniosExperiencia;
+	private int anios_experiencia;
 	private Blob video;
 }

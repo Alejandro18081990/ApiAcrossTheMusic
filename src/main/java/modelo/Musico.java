@@ -7,12 +7,14 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
+import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 
 @Data
 @AllArgsConstructor
 @Entity
+@Table(name = "musico")
 public class Musico {
 
 	@Id
@@ -30,8 +32,4 @@ public class Musico {
 	
 	@OneToMany(mappedBy = "musico")
 	private List<Video> misVideos;
-	
-	
-	
-
 }
