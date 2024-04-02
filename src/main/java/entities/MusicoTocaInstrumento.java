@@ -1,4 +1,4 @@
-package modelo;
+package entities;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -14,18 +14,19 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @Entity
-@Table(name = "MusicoTocaJam")
-public class MusicoTocaJam {
+@Table(name = "MusicoTocaInstrumento")
+public class MusicoTocaInstrumento {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
-	
+
 	@ManyToOne
-	@JoinColumns({ @JoinColumn(name = "idMusico"), @JoinColumn(name = "email") })
+	@JoinColumn(name = "idMusico")
 	private Musico musico;
-	
+
 	@ManyToOne
-	@JoinColumn(name="idJamSession")
-	private JamSession jamSession;
+	@JoinColumn(name = "idInstrumento")
+	private Instrumento instrumento;
+
 }

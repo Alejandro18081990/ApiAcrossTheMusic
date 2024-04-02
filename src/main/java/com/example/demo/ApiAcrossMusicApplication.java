@@ -5,7 +5,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.domain.EntityScan;
 
 @SpringBootApplication
-@EntityScan(basePackages = {"modelo"})
+@EntityScan(basePackages = {"entities"})
 public class ApiAcrossMusicApplication {
 	
 	public static void main(String[] args) {

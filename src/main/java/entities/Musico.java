@@ -1,7 +1,8 @@
-package modelo;
+package entities;
 
 import java.util.List;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -20,7 +21,8 @@ public class Musico {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long idMusico;
-	@Id
+	// Evita que el campo se pueda repetir
+	@Column(unique = true)
 	private String email;
 	private String nombre;
 	private String apellido1;
@@ -29,7 +31,7 @@ public class Musico {
 	private int aniosExperiencia;
 	private String formacion;
 	private boolean tieneFormacion;
-	
+
 	@OneToMany(mappedBy = "musico")
 	private List<Video> misVideos;
 }

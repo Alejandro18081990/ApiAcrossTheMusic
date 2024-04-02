@@ -6,8 +6,8 @@ import org.springframework.stereotype.Component;
 
 import dto.musicoDto.CreateMusicoDto;
 import dto.musicoDto.MusicoDto;
+import entities.Musico;
 import lombok.RequiredArgsConstructor;
-import modelo.Musico;
 
 @Component
 @RequiredArgsConstructor

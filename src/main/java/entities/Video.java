@@ -1,4 +1,4 @@
-package modelo;
+package entities;
 
 import java.sql.Blob;
 
@@ -20,8 +20,8 @@ public class Video {
 	@Id
 	private long idVideo;
 	private Blob video;
-	
+
 	@ManyToOne
-	@JoinColumns({ @JoinColumn(name = "idMusico"), @JoinColumn(name = "email") })
+	@JoinColumn(name = "idMusico")
 	private Musico musico;
 }

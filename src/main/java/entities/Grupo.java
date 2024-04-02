@@ -1,13 +1,9 @@
-package modelo;
-
-
+package entities;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -15,18 +11,13 @@ import lombok.Data;
 @Data
 @AllArgsConstructor
 @Entity
-@Table(name = "JamSession")
-public class JamSession {
+@Table(name = "Grupo")
+public class Grupo {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private long idJamSession;
+	private long idGrupo;
 
-	private String nombreJam;
-	
-	//Pendiente de implementar Estilo
-	@ManyToOne
-	@JoinColumn(name = "idEstilo")
-	private Estilo estilo;
-	
+	private String nombreGrupo;
+	private int anioFormacion;
 }

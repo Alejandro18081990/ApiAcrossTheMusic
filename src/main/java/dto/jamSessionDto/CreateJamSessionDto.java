@@ -3,7 +3,7 @@ package dto.jamSessionDto;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import modelo.JamSession;
+import entities.JamSession;
 
 public class CreateJamSessionDto {
 	@Autowired
