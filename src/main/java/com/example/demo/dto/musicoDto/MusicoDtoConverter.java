@@ -1,26 +1,25 @@
-package dto.jamSessionDto;
+package com.example.demo.dto.musicoDto;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import dto.musicoDto.CreateMusicoDto;
-import dto.musicoDto.MusicoDto;
-import entities.Musico;
+import com.example.demo.entities.Musico;
+
 import lombok.RequiredArgsConstructor;
 
 @Component
 @RequiredArgsConstructor
-public class JamSessionDtoConverter {
+public class MusicoDtoConverter {
 
 	@Autowired
 	private ModelMapper modelMapper;
 
-	public MusicoDto convertirDto(Musico musico) {
+	public MusicoDto convertirADTO(Musico musico) {
 		return modelMapper.map(musico, MusicoDto.class);
 	}
 
-	public Musico convertirAMusico(CreateMusicoDto createMusicoDto) {
+	public Musico convertirAMusicoDTO(CreateMusicoDto createMusicoDto) {
 		return modelMapper.map(createMusicoDto, Musico.class);
 	}
 }

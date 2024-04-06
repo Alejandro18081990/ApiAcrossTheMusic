@@ -1,4 +1,4 @@
-package services;
+package com.example.demo.services;
 
 import java.util.List;
 import java.util.Optional;
@@ -6,7 +6,11 @@ import java.util.Optional;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
-import entities.Musico;
+import com.example.demo.entities.Musico;
+
+
+
+
 
 public interface MusicoService {
 

@@ -1,4 +1,4 @@
-package dto.jamSessionDto;
+package com.example.demo.dto.jamSessionDto;
 
 
 

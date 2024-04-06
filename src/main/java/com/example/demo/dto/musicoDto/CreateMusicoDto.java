@@ -1,4 +1,4 @@
-package dto.musicoDto;
+package com.example.demo.dto.musicoDto;
 
 import java.sql.Blob;
 

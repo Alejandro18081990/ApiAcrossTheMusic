@@ -1,4 +1,4 @@
-package controller;
+package com.example.demo.controller;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -9,14 +9,17 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-import dto.musicoDto.MusicoDto;
-import dto.musicoDto.MusicoDtoConverter;
-import entities.Musico;
+
+import com.example.demo.dto.musicoDto.MusicoDto;
+import com.example.demo.dto.musicoDto.MusicoDtoConverter;
+import com.example.demo.entities.Musico;
+import com.example.demo.repositorios.EstiloRepository;
+import com.example.demo.repositorios.JamSessionRepository;
+import com.example.demo.repositorios.MusicoRepository;
+import com.example.demo.services.MusicoServiceImpl;
+
 import lombok.RequiredArgsConstructor;
-import repositorios.EstiloRepository;
-import repositorios.JamSessionRepository;
-import repositorios.MusicoRepository;
-import services.MusicoServiceImpl;
+
 
 @RestController
 @RequiredArgsConstructor
@@ -38,7 +41,7 @@ public class MusicoController {
 
 	@GetMapping("/musicos")
 	public ResponseEntity<?> getAllMusicos() {
-		Iterable<Musico> listadoMusicos = musicoRepositorio.findAll();
+		List<Musico> listadoMusicos = musicoRepositorio.findAll();
 		if (listadoMusicos == null)
 			ResponseEntity.notFound().build();
 		return ResponseEntity.ok(listadoMusicos);
@@ -54,6 +57,7 @@ public class MusicoController {
 		}
 		List<MusicoDto> musicosConsultaDto = musicos.parallelStream().map(musicoDtoConverter::convertirADTO)
 				.collect(Collectors.toList());
+		System.out.println("ConsultaMusicosByInstrumentoByEstilo " + musicos);
 		return ResponseEntity.ok(musicosConsultaDto);
 	}
 }

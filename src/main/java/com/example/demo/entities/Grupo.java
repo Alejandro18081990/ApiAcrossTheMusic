@@ -1,5 +1,5 @@
-package entities;
-import jakarta.persistence.Column;
+package com.example.demo.entities;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -9,18 +9,15 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 
 @Data
-//@NoArgsConstructor ¿Por qué me indica que la anotación está duplicada?
 @AllArgsConstructor
 @Entity
-@Table(name = "Instrumento")
-public class Instrumento {
+@Table(name = "Grupo")
+public class Grupo {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private long idInstrumento;
-	
-	@Column(name="nombreInstrumento")
-	private String nombreInstrumento;
-	
+	private long idGrupo;
 
+	private String nombreGrupo;
+	private int anioFormacion;
 }

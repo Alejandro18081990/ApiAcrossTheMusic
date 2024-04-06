@@ -1,8 +1,8 @@
-package entities;
-
-import java.sql.Blob;
+package com.example.demo.entities;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.JoinColumns;
@@ -11,19 +11,18 @@ import jakarta.persistence.Table;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-
-//Pendiente de insertar datos para hacer la primera consulta
 @Data
 @NoArgsConstructor
-@Entity
-@Table(name = "video")
-public class Video {
+@Entity(name = "musico_toca_jam")
+@Table(name = "musico_toca_jam")
+public class MusicoTocaJam {
 
 	@Id
-	private long idVideo;
-	private Blob video;
-
 	@ManyToOne
 	@JoinColumn(name = "idMusico")
 	private Musico musico;
+	@Id
+	@ManyToOne
+	@JoinColumn(name = "idJamSession")
+	private JamSession jamSession;
 }

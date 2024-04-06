@@ -1,6 +1,6 @@
-package entities;
-
+package com.example.demo.entities;
 import java.util.List;
+import java.util.Set;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -11,9 +11,11 @@ import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Data
 @AllArgsConstructor
+@NoArgsConstructor
 @Entity
 @Table(name = "musico")
 public class Musico {
@@ -31,7 +33,15 @@ public class Musico {
 	private int aniosExperiencia;
 	private String formacion;
 	private boolean tieneFormacion;
-
+	
+	@OneToMany(mappedBy = "musico")
+	Set<MusicoTocaInstrumento> musicoTocaInstrumento;
+	
+	
+	@OneToMany(mappedBy = "musico")
+	Set<MusicoTocaEstilo>musicoTocaEstilo;
+	
+	
 	@OneToMany(mappedBy = "musico")
 	private List<Video> misVideos;
 }

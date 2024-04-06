@@ -1,5 +1,8 @@
-package entities;
+package com.example.demo.entities;
 
+import java.io.Serializable;
+
+import jakarta.persistence.Embeddable;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -13,17 +16,20 @@ import lombok.NoArgsConstructor;
 
 @Data
 @NoArgsConstructor
-@Entity
-@Table(name = "MusicoTocaJam")
-public class MusicoTocaJam {
+@Entity(name = "musico_toca_instrumento")
+//@Table(name = "musico_toca_instrumento")
+public class MusicoTocaInstrumento implements Serializable {
 
-	
 	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	Long id;
+
 	@ManyToOne
-	@JoinColumn(name = "idMusico")
+	@JoinColumn(name = "musico")
 	private Musico musico;
-	@Id
+
 	@ManyToOne
-	@JoinColumn(name="idJamSession")
-	private JamSession jamSession;
+	@JoinColumn(name = "instrumento")
+	private Instrumento instrumento;
+
 }

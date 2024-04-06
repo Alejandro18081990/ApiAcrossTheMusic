@@ -1,9 +1,12 @@
-package repositorios;
+package com.example.demo.repositorios;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import entities.Estilo;
-import entities.JamSession;
+import com.example.demo.entities.Estilo;
+
+
+
+
 
 public interface EstiloRepository extends JpaRepository<Estilo,Long> { 
 
