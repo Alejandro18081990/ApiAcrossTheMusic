@@ -14,11 +14,11 @@ public class MusicoDtoConverter {
 	@Autowired
 	private ModelMapper modelMapper;
 
-	public MusicoDto convertirDto(Musico musico) {
+	public MusicoDto convertirADTO(Musico musico) {
 		return modelMapper.map(musico, MusicoDto.class);
 	}
 
-	public Musico convertirAMusico(CreateMusicoDto createMusicoDto) {
+	public Musico convertirAMusicoDTO(CreateMusicoDto createMusicoDto) {
 		return modelMapper.map(createMusicoDto, Musico.class);
 	}
 }

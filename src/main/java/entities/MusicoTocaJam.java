@@ -17,14 +17,12 @@ import lombok.NoArgsConstructor;
 @Table(name = "MusicoTocaJam")
 public class MusicoTocaJam {
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private long id;
 	
+	@Id
 	@ManyToOne
 	@JoinColumn(name = "idMusico")
 	private Musico musico;
-	
+	@Id
 	@ManyToOne
 	@JoinColumn(name="idJamSession")
 	private JamSession jamSession;

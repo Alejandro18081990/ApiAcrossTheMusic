@@ -27,7 +27,7 @@ public class MusicoServiceImpl implements MusicoService {
 	}
 
 	@Override
-	public Optional<Musico> findByEstiloAndInstrumento(String nombreEstilo, String nombreInstrumento) {
+	public List<Musico> findByEstiloAndInstrumento(String nombreEstilo, String nombreInstrumento) {
 		return musicoRepository.findByInstrumentoAndEstilo(nombreInstrumento, nombreEstilo);
 	}
 
@@ -36,5 +36,4 @@ public class MusicoServiceImpl implements MusicoService {
 		// TODO Auto-generated method stub
 		return null;
 	}
-
 }

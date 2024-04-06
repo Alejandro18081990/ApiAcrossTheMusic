@@ -1,9 +1,7 @@
 package controller;
 
 import java.util.List;
-import java.util.Optional;
 import java.util.stream.Collectors;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -22,11 +20,13 @@ import services.MusicoServiceImpl;
 
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("apiATM/musicos")
+//@RequestMapping("apiATM/musicos")
 public class MusicoController {
 
 	@Autowired
 	private final MusicoRepository musicoRepositorio;
+	@Autowired
+	MusicoDto musicosDTO;
 	@Autowired
 	private MusicoDtoConverter musicoDtoConverter;
 	@Autowired
@@ -36,15 +36,24 @@ public class MusicoController {
 	@Autowired
 	private MusicoServiceImpl musicoServiceImpl;
 
-	@GetMapping("/api/musico/{nombreInstrumento}/{nombreEstilo}")
-	public ResponseEntity<?> getMusicoByEstiloAndInstrumento(
-			@RequestParam(name = "nombreInstrumento") String nombreInstrumento,
-			@RequestParam(name = "nombreEstilo") String nombreEstilo) {
-		Optional<Musico> musicos = musicoServiceImpl.findByEstiloAndInstrumento(nombreInstrumento, nombreEstilo);
-		if (!musicos.isPresent())
+	@GetMapping("/musicos")
+	public ResponseEntity<?> getAllMusicos() {
+		Iterable<Musico> listadoMusicos = musicoRepositorio.findAll();
+		if (listadoMusicos == null)
 			ResponseEntity.notFound().build();
-
-		return ResponseEntity.ok(musicos);
+		return ResponseEntity.ok(listadoMusicos);
 	}
 
+	@GetMapping("/{nombreInstrumento}/{nombreEstilo}")
+	public ResponseEntity<?> getMusicoByEstiloAndInstrumento(@PathVariable String nombreInstrumento,
+			@PathVariable String nombreEstilo) {
+		List<Musico> musicos = musicoServiceImpl.findByEstiloAndInstrumento(nombreInstrumento, nombreEstilo);
+		if (musicos == null) {
+			ResponseEntity.notFound().build();
+			System.out.println("Error en la solicitud");
+		}
+		List<MusicoDto> musicosConsultaDto = musicos.parallelStream().map(musicoDtoConverter::convertirADTO)
+				.collect(Collectors.toList());
+		return ResponseEntity.ok(musicosConsultaDto);
+	}
 }

@@ -16,14 +16,13 @@ import lombok.Data;
 @Entity
 @Table(name = "MusicoTocaEstilo")
 public class MusicoTocaEstilo {
-
+	
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private long id;
 	@ManyToOne
 	@JoinColumn(name = "idMusico")
 	private Musico musico;
-
+	
+	@Id
 	@ManyToOne
 	@JoinColumn(name = "idEstilo")
 	private Estilo estilo;

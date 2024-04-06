@@ -2,6 +2,7 @@ package entities;
 
 import java.util.List;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -20,7 +21,8 @@ public class Estilo {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long idEstilo;
-
+	
+	@Column(name="nombreEstilo")
 	private String nombreEstilo;
 
 	@OneToMany(mappedBy = "estilo")

@@ -11,10 +11,12 @@ import jakarta.persistence.Table;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+
+//Pendiente de insertar datos para hacer la primera consulta
 @Data
 @NoArgsConstructor
 @Entity
-@Table(name = "Video")
+@Table(name = "video")
 public class Video {
 
 	@Id
