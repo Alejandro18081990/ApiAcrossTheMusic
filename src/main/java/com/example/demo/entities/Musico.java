@@ -43,6 +43,6 @@ public class Musico {
 	Set<MusicoTocaEstilo>musicoTocaEstilo;
 	
 	
-//	@OneToMany(mappedBy = "musico")
-//	private List<Video> misVideos;
+	@OneToMany(mappedBy = "musico")
+	private List<Video> misVideos;
 }

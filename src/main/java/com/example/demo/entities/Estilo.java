@@ -25,9 +25,9 @@ public class Estilo {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long idEstilo;
 
-	@OneToMany(mappedBy = "estilo")
+/* 	@OneToMany(mappedBy = "estilo")
 	Set<MusicoTocaEstilo> musicoTocaEstilo;
-
+ */
 	@Column(name = "nombreEstilo")
 	private String nombreEstilo;
 

@@ -1,5 +1,7 @@
 package com.example.demo.entities;
 
+import java.sql.Date;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -25,4 +27,6 @@ public class MusicoTocaJam {
 	@ManyToOne
 	@JoinColumn(name = "idJamSession")
 	private JamSession jamSession;
+
+	private Date fecha;
 }

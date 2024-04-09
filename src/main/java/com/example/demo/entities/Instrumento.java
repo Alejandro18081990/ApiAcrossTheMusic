@@ -25,9 +25,9 @@ public class Instrumento {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long idInstrumento;
 
-	@OneToMany(mappedBy = "instrumento" , fetch = FetchType.EAGER)
+/* 	@OneToMany(mappedBy = "instrumento" , fetch = FetchType.EAGER)
 	Set<MusicoTocaInstrumento> musicoTocaInstrumento;
-
+ */
 	@Column(name = "nombreInstrumento")
 	private String nombreInstrumento;
 

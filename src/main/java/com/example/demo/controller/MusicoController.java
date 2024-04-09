@@ -25,7 +25,7 @@ import lombok.RequiredArgsConstructor;
 
 @RestController
 @RequiredArgsConstructor
-//@RequestMapping("apiATM/musicos")
+@RequestMapping("apiATM/musicos")
 public class MusicoController {
 
 	@Autowired
@@ -54,8 +54,7 @@ public class MusicoController {
 	public ResponseEntity<?> getMusicoByEstiloAndInstrumento(@PathVariable String nombreInstrumento,
 			@PathVariable String nombreEstilo) {
 		List<Musico> musicos = musicoServiceImpl.findByEstiloAndInstrumento(nombreInstrumento, nombreEstilo);
-		System.out.println("Parámetros: " + nombreInstrumento + " " + nombreEstilo);
-		
+			
 		if (musicos == null) {
 			ResponseEntity.notFound().build();
 			System.out.println("Error en la solicitud");
