@@ -15,17 +15,25 @@ import com.example.demo.entities.Musico;
 @Repository
 public interface MusicoRepository extends JpaRepository<Musico, Long> {
 
-	@Query("SELECT DISTINCT m FROM Musico m " +
-		       "JOIN musico_toca_instrumento mti ON m.id = mti.musico.idMusico " +
-		       "JOIN musico_toca_estilo mte ON m.id = mte.musico.idMusico " +
+	@Query("SELECT m FROM Musico m " +
+		       "JOIN m.musicoTocaInstrumento mti " +
 		       "JOIN mti.instrumento i " +
+		       "JOIN m.musicoTocaEstilo mte " +
 		       "JOIN mte.estilo e " +
-		       "WHERE i.nombreInstrumento = :nombreInstrumento " +
-		       "AND e.nombreEstilo = :nombreEstilo")
+		       "WHERE i.nombreInstrumento LIKE :nombreInstrumento " +
+		       "AND e.nombreEstilo LIKE :nombreEstilo")
 	List<Musico> findByInstrumentoAndEstilo(@Param("nombreInstrumento") String nombreInstrumento,
 			@Param("nombreEstilo") String nombreEstilo);
 
 }
+
+//@Query("SELECT DISTINCT m FROM Musico m " +
+//	       "JOIN musico_toca_instrumento mti ON m.id = mti.musico.idMusico " +
+//	       "JOIN musico_toca_estilo mte ON m.id = mte.musico.idMusico " +
+//	       "JOIN mti.instrumento i " +
+//	       "JOIN mte.estilo e " +
+//	       "WHERE i.nombreInstrumento = :nombreInstrumento " +
+//	       "AND e.nombreEstilo = :nombreEstilo")
 
 //@Query("SELECT DISTINCT m FROM Musico m " +
 //	       "JOIN musico_toca_instrumento mti ON m.id = mti.musico.idMusico " +

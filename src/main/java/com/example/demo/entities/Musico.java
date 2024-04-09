@@ -4,6 +4,7 @@ import java.util.Set;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -34,7 +35,7 @@ public class Musico {
 	private String formacion;
 	private boolean tieneFormacion;
 	
-	@OneToMany(mappedBy = "musico")
+	@OneToMany(mappedBy = "musico", fetch = FetchType.EAGER)
 	Set<MusicoTocaInstrumento> musicoTocaInstrumento;
 	
 	
@@ -42,6 +43,6 @@ public class Musico {
 	Set<MusicoTocaEstilo>musicoTocaEstilo;
 	
 	
-	@OneToMany(mappedBy = "musico")
-	private List<Video> misVideos;
+//	@OneToMany(mappedBy = "musico")
+//	private List<Video> misVideos;
 }

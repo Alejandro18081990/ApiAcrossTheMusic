@@ -2,6 +2,8 @@ package com.example.demo.controller;
 
 import java.util.List;
 import java.util.stream.Collectors;
+
+import org.hibernate.internal.build.AllowSysOut;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -44,6 +46,7 @@ public class MusicoController {
 		List<Musico> listadoMusicos = musicoRepositorio.findAll();
 		if (listadoMusicos == null)
 			ResponseEntity.notFound().build();
+		System.out.println("Controlador getAll" + listadoMusicos.get(1).getMusicoTocaInstrumento());
 		return ResponseEntity.ok(listadoMusicos);
 	}
 
@@ -51,6 +54,8 @@ public class MusicoController {
 	public ResponseEntity<?> getMusicoByEstiloAndInstrumento(@PathVariable String nombreInstrumento,
 			@PathVariable String nombreEstilo) {
 		List<Musico> musicos = musicoServiceImpl.findByEstiloAndInstrumento(nombreInstrumento, nombreEstilo);
+		System.out.println("Parámetros: " + nombreInstrumento + " " + nombreEstilo);
+		
 		if (musicos == null) {
 			ResponseEntity.notFound().build();
 			System.out.println("Error en la solicitud");

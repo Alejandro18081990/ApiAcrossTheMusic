@@ -33,7 +33,10 @@ public class MusicoServiceImpl implements MusicoService {
 	}
 
 	@Override
-	public List<Musico> findByEstiloAndInstrumento(String nombreEstilo, String nombreInstrumento) {
+	public List<Musico> findByEstiloAndInstrumento(String nombreInstrumento,String nombreEstilo) {
+		System.out.println("Servicio" + nombreEstilo + nombreInstrumento);
+		List<Musico>prueba = musicoRepository.findByInstrumentoAndEstilo(nombreInstrumento, nombreEstilo);
+		System.out.println("Servicio: " + prueba);
 		return musicoRepository.findByInstrumentoAndEstilo(nombreInstrumento, nombreEstilo);
 	}
 

@@ -4,6 +4,7 @@ import java.util.Set;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -24,7 +25,7 @@ public class Instrumento {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long idInstrumento;
 
-	@OneToMany(mappedBy = "instrumento")
+	@OneToMany(mappedBy = "instrumento" , fetch = FetchType.EAGER)
 	Set<MusicoTocaInstrumento> musicoTocaInstrumento;
 
 	@Column(name = "nombreInstrumento")
