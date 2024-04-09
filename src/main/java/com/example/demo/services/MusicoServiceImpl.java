@@ -12,9 +12,6 @@ import org.springframework.stereotype.Service;
 import com.example.demo.entities.Musico;
 import com.example.demo.repositorios.MusicoRepository;
 
-
-
-
 @Service
 public class MusicoServiceImpl implements MusicoService {
 
@@ -33,16 +30,16 @@ public class MusicoServiceImpl implements MusicoService {
 	}
 
 	@Override
-	public List<Musico> findByEstiloAndInstrumento(String nombreInstrumento,String nombreEstilo) {
-		//System.out.println("Servicio" + nombreEstilo + nombreInstrumento);
-		//List<Musico>prueba = musicoRepository.findByInstrumentoAndEstilo(nombreInstrumento, nombreEstilo);
-		//System.out.println("Servicio: " + prueba);
+	public List<Musico> findByEstiloAndInstrumento(String nombreInstrumento, String nombreEstilo) {
+		// System.out.println("Servicio" + nombreEstilo + nombreInstrumento);
+		// List<Musico>prueba =
+		// musicoRepository.findByInstrumentoAndEstilo(nombreInstrumento, nombreEstilo);
+		// System.out.println("Servicio: " + prueba);
 		return musicoRepository.findByInstrumentoAndEstilo(nombreInstrumento, nombreEstilo);
 	}
 
 	@Override
 	public Musico save(Musico musico) {
-		// TODO Auto-generated method stub
-		return null;
+		return musicoRepository.save(musico);
 	}
 }

@@ -1,10 +1,12 @@
-package com.example.demo.controller;
+package com.example.demo.musicoController;
 
 import java.util.List;
 import java.util.stream.Collectors;
 
 import org.hibernate.internal.build.AllowSysOut;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -12,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.example.demo.dto.musicoDto.CreateMusicoDto;
 import com.example.demo.dto.musicoDto.MusicoDto;
 import com.example.demo.dto.musicoDto.MusicoDtoConverter;
 import com.example.demo.entities.Musico;
@@ -21,7 +24,8 @@ import com.example.demo.repositorios.MusicoRepository;
 import com.example.demo.services.MusicoServiceImpl;
 
 import lombok.RequiredArgsConstructor;
-
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 
 @RestController
 @RequiredArgsConstructor
@@ -41,12 +45,19 @@ public class MusicoController {
 	@Autowired
 	private MusicoServiceImpl musicoServiceImpl;
 
-	@GetMapping("/musicos")
+	@PostMapping("/musico")
+	public ResponseEntity<?> createMusico(@RequestBody Musico musicoNuevo) {
+		Musico newMusician = musicoServiceImpl.save(musicoNuevo);
+		System.out.println(musicoNuevo);
+		return ResponseEntity.status(HttpStatus.CREATED).body(newMusician);
+	}
+
+	@GetMapping("/")
 	public ResponseEntity<?> getAllMusicos() {
-		List<Musico> listadoMusicos = musicoRepositorio.findAll();
+		Iterable<Musico> listadoMusicos = musicoServiceImpl.findAll();
+		System.out.println("----------------------------------------------------------------------" + listadoMusicos);
 		if (listadoMusicos == null)
 			ResponseEntity.notFound().build();
-		System.out.println("Controlador getAll" + listadoMusicos.get(1).getMusicoTocaInstrumento());
 		return ResponseEntity.ok(listadoMusicos);
 	}
 
@@ -54,7 +65,7 @@ public class MusicoController {
 	public ResponseEntity<?> getMusicoByEstiloAndInstrumento(@PathVariable String nombreInstrumento,
 			@PathVariable String nombreEstilo) {
 		List<Musico> musicos = musicoServiceImpl.findByEstiloAndInstrumento(nombreInstrumento, nombreEstilo);
-			
+
 		if (musicos == null) {
 			ResponseEntity.notFound().build();
 			System.out.println("Error en la solicitud");
