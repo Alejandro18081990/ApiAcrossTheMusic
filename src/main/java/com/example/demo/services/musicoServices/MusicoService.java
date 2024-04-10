@@ -21,6 +21,7 @@ public interface MusicoService {
 	public List<Musico> findByEstiloAndInstrumento(String nombreInstrumento, String nombreEstilo);
 
 	public Musico save(Musico musico);
-	
+
+	public List<Musico> findMusicoByMusicoTocaJam(long idJam);
 	
 }

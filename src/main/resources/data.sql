@@ -74,4 +74,6 @@ insert into musico_toca_estilo (musico,estilo) values (8,1);
 
 INSERT INTO MUSICO_TOCA_JAM(id_musico,id_jam_session) values(1,1);
 INSERT INTO MUSICO_TOCA_JAM(id_musico,id_jam_session) values(2,2);
-INSERT INTO MUSICO_TOCA_JAM(id_musico,id_jam_session) values(3,3);
+INSERT INTO MUSICO_TOCA_JAM(id_musico,id_jam_session) values(3,2);
+INSERT INTO MUSICO_TOCA_JAM(id_musico,id_jam_session) values(4,2);
+INSERT INTO MUSICO_TOCA_JAM(id_musico,id_jam_session) values(5,1);

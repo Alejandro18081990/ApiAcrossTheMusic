@@ -25,6 +25,12 @@ public interface MusicoRepository extends JpaRepository<Musico, Long> {
 	List<Musico> findByInstrumentoAndEstilo(@Param("nombreInstrumento") String nombreInstrumento,
 			@Param("nombreEstilo") String nombreEstilo);
 
+
+	@Query("SELECT m FROM Musico m " +
+			"JOIN m.musicoTocaJam mtj " +
+			"JOIN mtj.jamSession js " +
+			"WHERE js.id = :idJam")
+	List<Musico>findMusicoByMusicoTocaJam(@Param("idJam")Long idJam);
 }
 
 //@Query("SELECT DISTINCT m FROM Musico m " +
