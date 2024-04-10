@@ -42,11 +42,11 @@ INSERT INTO INSTRUMENTO (NOMBRE_INSTRUMENTO) VALUES ("Clarinete");
 INSERT INTO INSTRUMENTO (NOMBRE_INSTRUMENTO) VALUES ("Tuba");
 INSERT INTO INSTRUMENTO (NOMBRE_INSTRUMENTO) VALUES ("Trompeta");
 
-INSERT INTO JAM_SESSION(nombre_jam,id_estilo) values("JamMetalera",1);
-INSERT INTO JAM_SESSION(nombre_jam,id_estilo) values("JamMetaleraClasica",4);
-INSERT INTO JAM_SESSION(nombre_jam,id_estilo) values("JamJazzera",5);
-INSERT INTO JAM_SESSION(nombre_jam,id_estilo) values("JamPopera",3);
-INSERT INTO JAM_SESSION(nombre_jam,id_estilo) values("JamBlusera",9);
+INSERT INTO JAM_SESSION(nombre_jam,id_estilo,fecha) values("JamMetalera",1, ('2024-08-18 22:00:00'));
+INSERT INTO JAM_SESSION(nombre_jam,id_estilo,fecha) values("JamMetaleraClasica",4, ('2024-08-18 22:00:00'));
+INSERT INTO JAM_SESSION(nombre_jam,id_estilo,fecha) values("JamJazzera",5, ('2024-08-19 22:00:00'));
+INSERT INTO JAM_SESSION(nombre_jam,id_estilo,fecha) values("JamPopera",3, ('2024-08-28 22:00:00'));
+INSERT INTO JAM_SESSION(nombre_jam,id_estilo,fecha) values("JamBlusera",9, ('2024-08-10 22:00:00'));
 
 INSERT IGNORE INTO MUSICO_TOCA_INSTRUMENTO(musico,instrumento) values (1,1);
 INSERT IGNORE INTO MUSICO_TOCA_ESTILO(musico,estilo)values (1,1);
@@ -72,6 +72,6 @@ insert into musico_toca_estilo (musico,estilo) values (7,1);
 INSERT IGNORE INTO MUSICO_TOCA_INSTRUMENTO(musico,instrumento)values (8,3);
 insert into musico_toca_estilo (musico,estilo) values (8,1);
 
-INSERT INTO MUSICO_TOCA_JAM(id_musico,id_jam_session,fecha) values(1,1, ('2024-08-18 22:00:00'));
-INSERT INTO MUSICO_TOCA_JAM(id_musico,id_jam_session,fecha) values(2,2,('2024-08-19 22:00:00'));
-INSERT INTO MUSICO_TOCA_JAM(id_musico,id_jam_session,fecha) values(3,3,('2024-08-12 22:00:00'));
+INSERT INTO MUSICO_TOCA_JAM(id_musico,id_jam_session) values(1,1);
+INSERT INTO MUSICO_TOCA_JAM(id_musico,id_jam_session) values(2,2);
+INSERT INTO MUSICO_TOCA_JAM(id_musico,id_jam_session) values(3,3);

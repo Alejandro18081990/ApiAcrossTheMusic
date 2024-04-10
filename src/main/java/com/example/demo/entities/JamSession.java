@@ -13,6 +13,8 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.sql.Date;
+
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
@@ -30,5 +32,6 @@ public class JamSession {
 	@ManyToOne
 	@JoinColumn(name = "idEstilo")
 	private Estilo estilo;
-	
+
+	private Date fecha;
 }

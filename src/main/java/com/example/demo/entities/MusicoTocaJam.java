@@ -32,5 +32,5 @@ public class MusicoTocaJam {
     @JoinColumn(name = "idJamSession")
     private JamSession jamSession;
 
-    private Date fecha;
+
 }
