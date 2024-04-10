@@ -18,15 +18,19 @@ import lombok.NoArgsConstructor;
 @Entity(name = "musico_toca_jam")
 @Table(name = "musico_toca_jam")
 public class MusicoTocaJam {
+    //RECORDATORIO
+    //Al mostrar los músicos que tocan en una jam hay que buscar la manera de mostrar el instrumento
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
-	@Id
-	@ManyToOne
-	@JoinColumn(name = "idMusico")
-	private Musico musico;
-	@Id
-	@ManyToOne
-	@JoinColumn(name = "idJamSession")
-	private JamSession jamSession;
+    @ManyToOne
+    @JoinColumn(name = "idMusico")
+    private Musico musico;
 
-	private Date fecha;
+    @ManyToOne
+    @JoinColumn(name = "idJamSession")
+    private JamSession jamSession;
+
+    private Date fecha;
 }

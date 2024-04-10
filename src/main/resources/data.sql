@@ -42,6 +42,7 @@ INSERT INTO INSTRUMENTO (NOMBRE_INSTRUMENTO) VALUES ("Clarinete");
 INSERT INTO INSTRUMENTO (NOMBRE_INSTRUMENTO) VALUES ("Tuba");
 INSERT INTO INSTRUMENTO (NOMBRE_INSTRUMENTO) VALUES ("Trompeta");
 
+INSERT INTO JAM_SESSION(nombre_jam,id_estilo) values("JamMetalera",3);
 
 INSERT IGNORE INTO MUSICO_TOCA_INSTRUMENTO(musico,instrumento) values (1,1);
 INSERT IGNORE INTO MUSICO_TOCA_ESTILO(musico,estilo)values (1,1);
@@ -66,3 +67,7 @@ insert into musico_toca_estilo (musico,estilo) values (7,1);
 
 INSERT IGNORE INTO MUSICO_TOCA_INSTRUMENTO(musico,instrumento)values (8,3);
 insert into musico_toca_estilo (musico,estilo) values (8,1);
+
+INSERT INTO MUSICO_TOCA_JAM(id_musico,id_jam_session,fecha) values(1,1, ('2024-08-18 22:00:00'));
+INSERT INTO MUSICO_TOCA_JAM(id_musico,id_jam_session,fecha) values(2,1,('2024-08-19 22:00:00'));
+--INSERT INTO MUSICO_TOCA_JAM(id_musico,id_jam_session,fecha) values(3,1,('2024-08-12 22:00:00'));
