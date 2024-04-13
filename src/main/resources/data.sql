@@ -49,6 +49,8 @@ INSERT INTO JAM_SESSION(nombre_jam,id_estilo,fecha) values("JamPopera",3, ('2024
 INSERT INTO JAM_SESSION(nombre_jam,id_estilo,fecha) values("JamBlusera",9, ('2024-08-10 22:00:00'));
 
 INSERT IGNORE INTO MUSICO_TOCA_INSTRUMENTO(musico,instrumento) values (1,1);
+INSERT IGNORE INTO MUSICO_TOCA_INSTRUMENTO(musico,instrumento) values (1,2);
+INSERT IGNORE INTO MUSICO_TOCA_INSTRUMENTO(musico,instrumento) values (1,3);
 INSERT IGNORE INTO MUSICO_TOCA_ESTILO(musico,estilo)values (1,1);
 
 INSERT IGNORE INTO MUSICO_TOCA_INSTRUMENTO(musico,instrumento)values (2,2);

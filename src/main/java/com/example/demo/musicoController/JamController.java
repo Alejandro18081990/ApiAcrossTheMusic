@@ -6,6 +6,7 @@ import com.example.demo.entities.Musico;
 import com.example.demo.services.jamsServices.JamService;
 import com.example.demo.services.jamsServices.JamServiceImpl;
 import com.example.demo.services.musicoServices.MusicoServiceImpl;
+import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,11 +33,14 @@ public class JamController {
 
     @Autowired
     private MusicoDtoConverter musicoDtoConverter;
+
+    @Operation(summary = "Devuelve todas las jams con su nombre y estilo")
     @GetMapping("/")
     public ResponseEntity<?> getAllJams() {
         return ResponseEntity.ok(jamServiceImpl.findAll());
     }
 
+    @Operation(summary = "Devuelve todos los músicos que tocan en una jam")
     @GetMapping("/musicos/{id}")
     public ResponseEntity<?> getMusiciansByJam(@PathVariable long id){
         //Aquí he de valorar si se devuelven DTOS u objetos normales

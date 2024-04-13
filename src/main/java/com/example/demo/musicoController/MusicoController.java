@@ -1,5 +1,6 @@
 package com.example.demo.musicoController;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -13,7 +14,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.example.demo.dto.musicoDto.MusicoDto;
+import com.example.demo.dto.musicoDto.MusicoDTO;
 import com.example.demo.dto.musicoDto.MusicoDtoConverter;
 import com.example.demo.entities.Musico;
 import com.example.demo.repositorios.EstiloRepository;
@@ -34,7 +35,7 @@ public class MusicoController {
     @Autowired
     private final MusicoRepository musicoRepositorio;
     @Autowired
-    MusicoDto musicosDTO;
+    MusicoDTO musicosDTO;
     @Autowired
     private MusicoDtoConverter musicoDtoConverter;
     @Autowired
@@ -51,28 +52,34 @@ public class MusicoController {
         System.out.println(musicoNuevo);
         return ResponseEntity.status(HttpStatus.CREATED).body(newMusician);
     }
+
     @Operation(summary = "Devuelve todos los musicos de la tabla Musico")
     @GetMapping("/")
-    public ResponseEntity<?> getAllMusicos() {
+    public ResponseEntity<List<MusicoDTO>> getAllMusicos() {
         Iterable<Musico> listadoMusicos = musicoServiceImpl.findAll();
+        List<MusicoDTO> listadoMusicosDTO = new ArrayList<>();
         System.out.println("----------------------------------------------------------------------" + listadoMusicos);
         if (listadoMusicos == null)
             ResponseEntity.notFound().build();
-        return ResponseEntity.ok(listadoMusicos);
+        for (Musico musico : listadoMusicos) {
+            listadoMusicosDTO.add(musicoDtoConverter.convertirADTO(musico));
+        }
+        return ResponseEntity.ok(listadoMusicosDTO);
     }
+
     @Operation(summary = "Devuelve todos los musicos que tocan un instrumento y estilos determinados")
     @GetMapping("/{nombreInstrumento}/{nombreEstilo}")
-    public ResponseEntity<?> getMusicoByEstiloAndInstrumento(@PathVariable String nombreInstrumento,
-                                                             @PathVariable String nombreEstilo) {
+    public ResponseEntity<List<MusicoDTO>> getMusicoByEstiloAndInstrumento(@PathVariable String nombreInstrumento,
+                                                                           @PathVariable String nombreEstilo) {
         List<Musico> musicos = musicoServiceImpl.findByEstiloAndInstrumento(nombreInstrumento, nombreEstilo);
 
-        if (musicos == null) {
+        if (musicos == null)
             ResponseEntity.notFound().build();
-            System.out.println("Error en la solicitud");
-        }
-        List<MusicoDto> musicosConsultaDto = musicos.parallelStream().map(musicoDtoConverter::convertirADTO)
-                .collect(Collectors.toList());
+        List<MusicoDTO> musicosConsultaDto = new ArrayList<>();
+        for (Musico musico : musicos)
+            musicosConsultaDto.add(musicoDtoConverter.convertirADTO(musico));
         System.out.println("ConsultaMusicosByInstrumentoByEstilo " + musicos);
         return ResponseEntity.ok(musicosConsultaDto);
     }
 }
+

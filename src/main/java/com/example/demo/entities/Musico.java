@@ -11,11 +11,10 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
-@Data
+@Getter
+@Setter
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
@@ -36,7 +35,7 @@ public class Musico {
     private String formacion;
     private boolean tieneFormacion;
 
-    @OneToMany(mappedBy = "musico", fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "musico" , fetch = FetchType.EAGER)
     Set<MusicoTocaInstrumento> musicoTocaInstrumento;
 
 
