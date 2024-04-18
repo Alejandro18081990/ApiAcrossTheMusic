@@ -6,4 +6,6 @@ import lombok.Data;
 public class EstiloDTO {
 
     private String nombreEstilo;
+
+
 }
