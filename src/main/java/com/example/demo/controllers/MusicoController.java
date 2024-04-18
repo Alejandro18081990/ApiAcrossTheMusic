@@ -7,7 +7,6 @@ import java.util.Optional;
 import com.example.demo.interfaces.ControllerInterface;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
-import lombok.Setter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -19,7 +18,7 @@ import com.example.demo.entities.Musico;
 import com.example.demo.repositorios.EstiloRepository;
 import com.example.demo.repositorios.JamSessionRepository;
 import com.example.demo.repositorios.MusicoRepository;
-import com.example.demo.services.musicoServices.MusicoServiceImpl;
+import com.example.demo.services.MusicoServiceImpl;
 
 import lombok.RequiredArgsConstructor;
 
