@@ -1,0 +1,11 @@
+=======================================Tareas=======================================
+
+1. Mira el último commit para comprobar lo implementado el último día.
+2. Si añado un músico, desde la interfaz de usuario he de pasar un objeto Musico,
+un objeto instrumento y un objeto Estilo para así poder guardar
+todos los datos de un Musico.
+Valorar si desde Android Studio sería recomendable hacer diferentes post
+a diferentes tablas:
+    Por un lado a Musico
+    Otra peticion para Estilo
+    Otra peticion para instrumento

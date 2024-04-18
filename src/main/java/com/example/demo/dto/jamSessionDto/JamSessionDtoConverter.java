@@ -1,5 +1,6 @@
 package com.example.demo.dto.jamSessionDto;
 
+import com.example.demo.entities.JamSession;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -14,14 +15,14 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class JamSessionDtoConverter {
 
-	@Autowired
-	private ModelMapper modelMapper;
+    @Autowired
+    private ModelMapper modelMapper;
 
-	public MusicoDTO convertirDto(Musico musico) {
-		return modelMapper.map(musico, MusicoDTO.class);
-	}
+    public JamSessionDto convertirDto(JamSession jamSession) {
+        return modelMapper.map(jamSession, JamSessionDto.class);
+    }
 
-	public Musico convertirAMusico(CreateMusicoDto createMusicoDto) {
-		return modelMapper.map(createMusicoDto, Musico.class);
-	}
+    public JamSession convertirAJam(CreateJamSessionDto createJamSessionDto) {
+        return modelMapper.map(createJamSessionDto, JamSession.class);
+    }
 }

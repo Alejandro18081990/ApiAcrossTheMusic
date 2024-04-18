@@ -9,19 +9,19 @@ import org.springframework.data.domain.Pageable;
 import com.example.demo.entities.Musico;
 
 
-
-
-
 public interface MusicoService {
 
-	public Iterable<Musico> findAll();
+    Iterable<Musico> findAll();
 
-	public Page<Musico> findAll(Pageable pageable);
+    Page<Musico> findAll(Pageable pageable);
 
-	public List<Musico> findByEstiloAndInstrumento(String nombreInstrumento, String nombreEstilo);
+    Optional<Musico> findById(long id);
 
-	public Musico save(Musico musico);
+    List<Musico> findByEstiloAndInstrumento(String nombreInstrumento, String nombreEstilo);
 
-	public List<Musico> findMusicoByMusicoTocaJam(long idJam);
-	
+    Musico save(Musico musico);
+
+    List<Musico> findMusicoByMusicoTocaJam(long idJam);
+
+    void delete(long id);
 }

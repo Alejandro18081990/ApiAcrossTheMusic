@@ -1,7 +1,9 @@
 package com.example.demo.services.musicoServices;
 
 import java.util.List;
+import java.util.Optional;
 
+import com.example.demo.dto.musicoDto.MusicoDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -18,6 +20,7 @@ public class MusicoServiceImpl implements MusicoService {
 
     @Override
     public Iterable<Musico> findAll() {
+
         return musicoRepository.findAll();
     }
 
@@ -28,11 +31,17 @@ public class MusicoServiceImpl implements MusicoService {
     }
 
     @Override
+    public void delete(long id) {
+        musicoRepository.deleteById(id);
+    }
+
+    @Override
+    public Optional<Musico> findById(long id) {
+        return musicoRepository.findById(id);
+    }
+
+    @Override
     public List<Musico> findByEstiloAndInstrumento(String nombreInstrumento, String nombreEstilo) {
-        // System.out.println("Servicio" + nombreEstilo + nombreInstrumento);
-        // List<Musico>prueba =
-        // musicoRepository.findByInstrumentoAndEstilo(nombreInstrumento, nombreEstilo);
-        // System.out.println("Servicio: " + prueba);
         return musicoRepository.findByInstrumentoAndEstilo(nombreInstrumento, nombreEstilo);
     }
 
@@ -43,6 +52,7 @@ public class MusicoServiceImpl implements MusicoService {
 
     @Override
     public Musico save(Musico musico) {
+
         return musicoRepository.save(musico);
     }
 }
