@@ -1,4 +1,5 @@
 package com.example.demo.entities;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -7,23 +8,26 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.JoinColumns;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
-import lombok.AllArgsConstructor;
-import lombok.Data;
+import lombok.*;
 
-@Data
+@Getter
+@Setter
 @AllArgsConstructor
-@Entity
-@Table(name = "MusicoTocaGrupo")
+@NoArgsConstructor
+@Entity(name = "musico_toca_grupo")
 public class MusicoTocaGrupo {
 
-	
-	@Id
-	@ManyToOne
-	@JoinColumn(name = "idMusico")
-	private Musico musico;
-	@Id
-	@ManyToOne
-	@JoinColumn(name = "idGrupo")
-	private Grupo grupo;
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private long id;
+
+    @ManyToOne
+    @JoinColumn(name = "idmusico")
+    private Musico musico;
+
+    @ManyToOne
+    @JoinColumn(name = "idgrupo")
+    private Grupo grupo;
 
 }

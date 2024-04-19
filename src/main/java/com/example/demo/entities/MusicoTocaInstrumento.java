@@ -9,7 +9,9 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-@Data
+//@Data comentado a raíz de un error que aparece en grupo que no consigo entender
+@Getter
+@Setter
 @NoArgsConstructor
 @Entity(name = "musico_toca_instrumento")
 //@Table(name = "musico_toca_instrumento")

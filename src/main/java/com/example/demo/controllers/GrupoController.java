@@ -10,10 +10,7 @@ import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Optional;
@@ -34,6 +31,8 @@ public class GrupoController implements ControllerInterface<Grupo, GrupoDTO> {
 
 
     @Override
+    @Operation(summary = "Devuelve todos los grupo tipo DTO")
+    @GetMapping("/")
     public ResponseEntity<List<GrupoDTO>> getAll() {
         List<Grupo> gruposConsultados = grupoServiceImpl.findAll();
         if (gruposConsultados.isEmpty())
@@ -42,21 +41,28 @@ public class GrupoController implements ControllerInterface<Grupo, GrupoDTO> {
                 .stream()
                 .map(grupo -> grupoDTOConverter.convertirADTO(grupo))
                 .collect(Collectors.toList());
+
         return ResponseEntity.ok(gruposDTO);
     }
 
     @Override
+    @Operation(summary = "Guarda un grupo en la base de datos")
+    @PostMapping("/")
     public ResponseEntity<Grupo> save(Grupo grupo) {
         return ResponseEntity.status(HttpStatus.CREATED).body(grupo);
     }
 
 
     @Override
+    @Operation(summary = "Borra un grupo encontrado por su id")
+    @DeleteMapping(ENDPOINT_BY_ID)
     public void delete(long id) {
         grupoServiceImpl.delete(id);
     }
 
     @Override
+    @Operation(summary = "Modifica un grupo encontrado por su id")
+    @PutMapping(ENDPOINT_BY_ID)
     public ResponseEntity<Grupo> update(Grupo grupoDetails, long id) {
         Optional<Grupo> grupoAModifiar = grupoServiceImpl.findById(id);
         if (!grupoAModifiar.isPresent())

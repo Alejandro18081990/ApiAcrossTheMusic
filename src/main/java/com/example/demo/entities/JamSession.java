@@ -27,8 +27,7 @@ public class JamSession {
 	private long idJamSession;
 
 	private String nombreJam;
-	
-	//Pendiente de implementar Estilo
+
 	@ManyToOne
 	@JoinColumn(name = "idEstilo")
 	private Estilo estilo;

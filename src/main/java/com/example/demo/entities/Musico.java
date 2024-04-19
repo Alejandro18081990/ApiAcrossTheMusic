@@ -3,6 +3,7 @@ package com.example.demo.entities;
 import java.util.List;
 import java.util.Set;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
@@ -35,7 +36,7 @@ public class Musico {
     private String formacion;
     private boolean tieneFormacion;
 
-    @OneToMany(mappedBy = "musico" , fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "musico", fetch = FetchType.EAGER)
     Set<MusicoTocaInstrumento> musicoTocaInstrumento;
 
 
@@ -44,6 +45,10 @@ public class Musico {
 
     @OneToMany(mappedBy = "musico")
     Set<MusicoTocaJam> musicoTocaJam;
+
+    @JsonIgnore
+    @OneToMany(mappedBy = "musico")
+    Set<MusicoTocaGrupo> musicoTocaGrupo;
 
     @OneToMany(mappedBy = "musico")
     private List<Video> misVideos;
