@@ -17,19 +17,18 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity(name = "musico_toca_estilo")
-//@Table(name = "musico_toca_estilo")
 public class MusicoTocaEstilo {
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	Long id;
-	@JsonIgnore
-	@ManyToOne
-	@JoinColumn(name = "musico")
-	private Musico musico;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    Long id;
+    @JsonIgnore
+    @ManyToOne
+    @JoinColumn(name = "musico")
+    private Musico musico;
 
-	@ManyToOne
-	@JoinColumn(name = "estilo")
-	private Estilo estilo;
+    @ManyToOne
+    @JoinColumn(name = "estilo")
+    private Estilo estilo;
 
 }

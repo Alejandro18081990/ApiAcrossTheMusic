@@ -1,7 +1,7 @@
 package com.example.demo.services;
 
-import com.example.demo.dto.grupoDTO.GrupoDTO;
 import com.example.demo.entities.Grupo;
+import com.example.demo.interfaces.ServiceInterface;
 import com.example.demo.repositorios.GrupoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;

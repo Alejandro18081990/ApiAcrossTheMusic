@@ -1,4 +1,4 @@
-package com.example.demo.services;
+package com.example.demo.interfaces;
 
 import java.util.Optional;
 

@@ -1,6 +1,7 @@
 package com.example.demo.services;
 
 import com.example.demo.entities.JamSession;
+import com.example.demo.interfaces.ServiceInterface;
 import com.example.demo.repositorios.JamSessionRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;

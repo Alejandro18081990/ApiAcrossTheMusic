@@ -1,10 +1,7 @@
 package com.example.demo.interfaces;
 
-import com.example.demo.dto.musicoDto.MusicoDTO;
-import com.example.demo.entities.Musico;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+
 
 import java.util.List;
 

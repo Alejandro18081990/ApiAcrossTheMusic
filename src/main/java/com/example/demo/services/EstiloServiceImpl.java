@@ -1,6 +1,7 @@
 package com.example.demo.services;
 
 import com.example.demo.entities.Estilo;
+import com.example.demo.interfaces.ServiceInterface;
 import com.example.demo.repositorios.EstiloRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
