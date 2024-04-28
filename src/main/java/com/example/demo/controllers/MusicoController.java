@@ -1,5 +1,6 @@
 package com.example.demo.controllers;
 
+import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -113,6 +114,15 @@ public class MusicoController implements ControllerInterface<Musico, MusicoDTO> 
             musicosConsultaDto.add(musicoDtoConverter.convertirADTO(musico));
         System.out.println("ConsultaMusicosByInstrumentoByEstilo " + musicos);
         return ResponseEntity.ok(musicosConsultaDto);
+    }
+
+    @Operation(summary = "Devuelve un musico encontrado a través de su email")
+    @GetMapping("/musico/email/{email}")
+    public ResponseEntity<MusicoDTO> findMusicoByEmail(@PathVariable(value = "email") String email) {
+        Musico musicoConsultado = musicoServiceImpl.findMusicoByEmail(email);
+        if (musicoConsultado == null)
+            return ResponseEntity.noContent().build();
+        return ResponseEntity.ok(musicoDtoConverter.convertirADTO(musicoConsultado));
     }
 }
 

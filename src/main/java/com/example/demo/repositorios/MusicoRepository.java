@@ -30,4 +30,6 @@ public interface MusicoRepository extends JpaRepository<Musico, Long> {
             "JOIN mtj.jamSession js " +
             "WHERE js.id = :idJam")
     List<Musico> findMusicoByMusicoTocaJam(@Param("idJam") Long idJam);
+
+    Musico findMusicoByEmail(String email);
 }

@@ -9,3 +9,7 @@ a diferentes tablas:
     Por un lado a Musico
     Otra peticion para Estilo
     Otra peticion para instrumento
+3. Valorar añadir posible filtrado por experiencia. Es importante poder buscar músicos
+experimentados. Solo tendría que implementar una consulta que busque a partir de un número.
+Músicos.aniosExperiencia > 5
+4. Recuerda revisar la manera de subir fotos y videos.

@@ -52,4 +52,8 @@ public class MusicoServiceImpl implements ServiceInterface<Musico> {
     public List<Musico> findMusicoByMusicoTocaJam(long idJam) {
         return musicoRepository.findMusicoByMusicoTocaJam(idJam);
     }
+
+    public Musico findMusicoByEmail(String email) {
+        return musicoRepository.findMusicoByEmail(email);
+    }
 }

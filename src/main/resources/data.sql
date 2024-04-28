@@ -60,6 +60,7 @@ INSERT INTO GRUPO(nombre_grupo,anio_formacion)values("Hybernia",1999);
 
 INSERT IGNORE INTO MUSICO_TOCA_INSTRUMENTO(musico,instrumento) values (1,1);
 INSERT IGNORE INTO MUSICO_TOCA_INSTRUMENTO(musico,instrumento) values (1,2);
+
 INSERT IGNORE INTO MUSICO_TOCA_INSTRUMENTO(musico,instrumento) values (1,3);
 INSERT IGNORE INTO MUSICO_TOCA_ESTILO(musico,estilo)values (1,1);
 
@@ -68,6 +69,8 @@ insert into musico_toca_estilo (musico,estilo) values (2,2);
 
 INSERT IGNORE INTO MUSICO_TOCA_INSTRUMENTO(musico,instrumento)values (3,5);
 insert into musico_toca_estilo (musico,estilo) values (3,6);
+insert into musico_toca_estilo (musico,estilo) values (3,7);
+insert into musico_toca_estilo (musico,estilo) values (3,8);
 
 INSERT IGNORE INTO MUSICO_TOCA_INSTRUMENTO(musico,instrumento)values (4,5);
 insert into musico_toca_estilo (musico,estilo) values (4,3);
