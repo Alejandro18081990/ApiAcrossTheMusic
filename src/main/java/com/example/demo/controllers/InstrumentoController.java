@@ -16,7 +16,7 @@ import java.util.Optional;
 import java.util.stream.Collectors;
 
 @RestController
-@RequestMapping(name = "apiATM/instrumentos")
+@RequestMapping("apiATM/instrumentos")
 @Tag(name = "PI Across the music - Controlador instrumentos")
 public class InstrumentoController implements ControllerInterface<Instrumento, InstrumentoDTO> {
 

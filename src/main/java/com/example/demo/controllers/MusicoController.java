@@ -106,7 +106,6 @@ public class MusicoController implements ControllerInterface<Musico, MusicoDTO> 
     @GetMapping("/{nombreInstrumento}/{nombreEstilo}")
     public ResponseEntity<List<MusicoDTO>> getMusicoByEstiloAndInstrumento(@PathVariable String nombreInstrumento, @PathVariable String nombreEstilo) {
         List<Musico> musicos = musicoServiceImpl.findByEstiloAndInstrumento(nombreInstrumento, nombreEstilo);
-
         if (musicos == null)
             ResponseEntity.notFound().build();
         List<MusicoDTO> musicosConsultaDto = new ArrayList<>();

@@ -9,5 +9,6 @@ import lombok.Setter;
 @RequiredArgsConstructor
 public class InstrumentoDTO {
 
+    private long idInstrumento;
     private String nombreInstrumento;
 }
