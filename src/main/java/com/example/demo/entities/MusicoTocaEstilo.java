@@ -22,7 +22,7 @@ public class MusicoTocaEstilo {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Long id;
-    @JsonIgnore
+    //@JsonIgnore
     @ManyToOne
     @JoinColumn(name = "musico")
     private Musico musico;
