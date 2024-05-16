@@ -33,4 +33,6 @@ public class JamSession {
 	private Estilo estilo;
 
 	private Date fecha;
+
+	private String lugar;
 }

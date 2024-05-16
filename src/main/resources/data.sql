@@ -21,6 +21,8 @@ INSERT IGNORE INTO MUSICO(email,nombre,apellido1,apellido2,edad,anios_experienci
 	VALUES('DavidG@gmail.com','David','Gonzalez','Roales',40,20,'Estudios_de_música',true);
 INSERT IGNORE INTO MUSICO(email,nombre,apellido1,apellido2,edad,anios_experiencia,formacion,tiene_formacion)
 	VALUES('Edu@gmail.com','Edu','-','-',40,20,'Estudios_de_música',true);
+INSERT IGNORE INTO MUSICO(email,nombre,apellido1,apellido2,edad,anios_experiencia,formacion,tiene_formacion)
+	VALUES('raquel91@gmail.com','Raquel','Romero','Reina',33,10,'Estudios superiores de música',true);
 --11 estilos
 INSERT IGNORE INTO ESTILO(nombre_estilo) VALUES ('Metal_progresivo');
 INSERT IGNORE INTO ESTILO(nombre_estilo) VALUES ('Rock');
@@ -95,6 +97,12 @@ insert into musico_toca_estilo (musico,estilo) values (10,3);
 
 INSERT IGNORE INTO MUSICO_TOCA_INSTRUMENTO(musico,instrumento)values (11,12);
 insert into musico_toca_estilo (musico,estilo) values (11,3);
+
+INSERT IGNORE INTO MUSICO_TOCA_INSTRUMENTO(musico,instrumento) values (12,2);
+INSERT IGNORE INTO MUSICO_TOCA_INSTRUMENTO(musico,instrumento) values (12,6);
+insert into musico_toca_estilo (musico,estilo) values (12,3);
+insert into musico_toca_estilo (musico,estilo) values (12,1);
+
 
 INSERT INTO MUSICO_TOCA_JAM(id_musico,id_jam_session) values(1,1);
 INSERT INTO MUSICO_TOCA_JAM(id_musico,id_jam_session) values(2,2);

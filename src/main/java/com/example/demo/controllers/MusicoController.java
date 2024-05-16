@@ -8,6 +8,8 @@ import java.util.Optional;
 import com.example.demo.interfaces.ControllerInterface;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -29,6 +31,7 @@ import lombok.RequiredArgsConstructor;
 @Tag(name = "PI: Across the music - Controlador Musicos")
 public class MusicoController implements ControllerInterface<Musico, MusicoDTO> {
 
+    private static final Logger log = LoggerFactory.getLogger(MusicoController.class);
     @Autowired
     private final MusicoRepository musicoRepositorio;
     @Autowired
@@ -121,6 +124,7 @@ public class MusicoController implements ControllerInterface<Musico, MusicoDTO> 
         Musico musicoConsultado = musicoServiceImpl.findMusicoByEmail(email);
         if (musicoConsultado == null)
             return ResponseEntity.noContent().build();
+        System.out.println(email);
         return ResponseEntity.ok(musicoDtoConverter.convertirADTO(musicoConsultado));
     }
 }

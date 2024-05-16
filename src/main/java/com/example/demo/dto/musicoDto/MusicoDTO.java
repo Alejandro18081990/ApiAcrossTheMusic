@@ -19,5 +19,7 @@ public class MusicoDTO {
     private int aniosExperiencia;
     private List<MusicoTocaInstrumentoDTO> instrumentos;
     private List<MusicoTocaEstiloDTO> estilos;
+    boolean tieneFormacion;
+    private String formacion;
     private Blob video;
 }
