@@ -2,6 +2,7 @@ package com.example.demo.dto.jamSessionDto;
 
 
 
+import com.example.demo.dto.estiloDTO.EstiloDTO;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -16,7 +17,7 @@ public class JamSessionDto {
 
 	private String nombreJam;
 	
-	private String estilo;
+	private EstiloDTO estilo;
 
 	private Date fecha;
 

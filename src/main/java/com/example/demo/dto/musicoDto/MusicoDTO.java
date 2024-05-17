@@ -13,6 +13,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class MusicoDTO {
 
+    private long idMusico;
     private String email;
     private String nombre;
     private int edad;

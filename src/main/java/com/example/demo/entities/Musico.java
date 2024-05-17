@@ -43,7 +43,7 @@ public class Musico {
     @OneToMany(mappedBy = "musico")
     Set<MusicoTocaEstilo> musicoTocaEstilo;
 
-    @OneToMany(mappedBy = "musico")
+    @OneToMany(mappedBy = "musicoTocaJam")
     Set<MusicoTocaJam> musicoTocaJam;
 
     @JsonIgnore

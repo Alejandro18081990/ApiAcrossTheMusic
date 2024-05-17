@@ -1,46 +1,58 @@
 package com.example.demo.controllers;
 
-import com.example.demo.dto.mteDTO.MusicoTocaEstiloDTO;
-import com.example.demo.dto.mteDTO.MusicoTocaEstiloDTOConverter;
+
 import com.example.demo.dto.mtj.MusicoTocaJamDTO;
-import com.example.demo.entities.MusicoTocaEstilo;
+
+import com.example.demo.dto.mtj.MusicoTocaJamDtoConverter;
+import com.example.demo.entities.JamSession;
+import com.example.demo.entities.Musico;
 import com.example.demo.entities.MusicoTocaJam;
 import com.example.demo.interfaces.ControllerInterface;
-import com.example.demo.repositorios.MusicoTocaJamRepository;
+import com.example.demo.services.MusicoTocaJamServiceImpl;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
+import org.apache.juli.logging.Log;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Logger;
 
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("apiATM/jams/mtj")
-@Tag(name = "PI: Across the music - Controlador MusicoTocaInstrumento")
+@Tag(name = "PI: Across the music - Controlador MusicoTocaJam")
 public class MusicoTocaJamController implements ControllerInterface<MusicoTocaJam, MusicoTocaJamDTO> {
 
     //REPASAR ==============================================================
     @Autowired
-    MusicoTocaJamRepository musicoTocaJamRepository;
+    MusicoTocaJamServiceImpl musicoTocaJamService;
+    @Autowired
+    MusicoTocaJamDtoConverter mtjDTOConverter;
 
     @Override
+    @Operation(summary = "Devuelve todos los registros de MusicoTocaJam")
+    @GetMapping("/")
     public ResponseEntity<List<MusicoTocaJamDTO>> getAll() {
-        return null;
+        Iterable<MusicoTocaJam> lista = musicoTocaJamService.findAll();
+        List<MusicoTocaJamDTO> listaDTO = new ArrayList<>();
+        for (MusicoTocaJam mte : lista) {
+            listaDTO.add(mtjDTOConverter.convertirADTO(mte));
+        }
+        return ResponseEntity.ok(listaDTO);
     }
 
-    @Operation(summary = "Devuelve el id del musico y el id del instrumento que toca")
-    @PostMapping("/")
+    @Operation(summary = "Añade un músico a una jam session")
     @Override
-    public ResponseEntity<MusicoTocaJam> save(@RequestBody MusicoTocaJam musicoTocaEstilo) {
-        MusicoTocaJam newMTJ = musicoTocaJamRepository.save(musicoTocaEstilo);
-        return ResponseEntity.status(HttpStatus.CREATED).body(newMTJ);
+    @PostMapping("/musico/")
+    public ResponseEntity<MusicoTocaJam> save(@RequestBody MusicoTocaJam musicoTocaJam) {
+        if (musicoTocaJam == null)
+            System.out.println("Musico toca llama viene null");
+        return ResponseEntity.status(HttpStatus.CREATED).body(musicoTocaJamService.save(musicoTocaJam));
     }
 
     @Override
@@ -49,7 +61,7 @@ public class MusicoTocaJamController implements ControllerInterface<MusicoTocaJa
     }
 
     @Override
-    public ResponseEntity<MusicoTocaJam> update(MusicoTocaJam musicoTocaInstrumento, long id) {
+    public ResponseEntity<MusicoTocaJam> update(MusicoTocaJam musicoTocaJam, long id) {
         return null;
     }
 

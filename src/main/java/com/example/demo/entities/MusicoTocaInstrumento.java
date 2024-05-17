@@ -16,17 +16,17 @@ import lombok.Setter;
 //@Table(name = "musico_toca_instrumento")
 public class MusicoTocaInstrumento implements Serializable {
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	Long id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    Long id;
 
 
-	@ManyToOne
-	@JoinColumn(name = "musico")
-	private Musico musico;
+    @ManyToOne
+    @JoinColumn(name = "musico")
+    private Musico musico;
 
-	@ManyToOne
-	@JoinColumn(name = "instrumento")
-	private Instrumento instrumento;
+    @ManyToOne
+    @JoinColumn(name = "instrumento")
+    private Instrumento instrumento;
 
 }

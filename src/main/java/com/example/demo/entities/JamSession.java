@@ -1,38 +1,35 @@
 package com.example.demo.entities;
 
 
-
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
-import jakarta.persistence.Table;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import jakarta.persistence.*;
+import lombok.*;
 
 import java.sql.Date;
+import java.util.Set;
 
-@Data
+@Getter
+@Setter
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
 @Table(name = "JamSession")
 public class JamSession {
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private long idJamSession;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private long idJamSession;
 
-	private String nombreJam;
+    private String nombreJam;
 
-	@ManyToOne
-	@JoinColumn(name = "idEstilo")
-	private Estilo estilo;
+    @ManyToOne
+    @JoinColumn(name = "idEstilo")
+    private Estilo estilo;
 
-	private Date fecha;
+    private Date fecha;
 
-	private String lugar;
+    private String lugar;
+
+    @OneToMany(mappedBy = "jamSession")
+    Set<MusicoTocaJam> jamSession;
+
 }
