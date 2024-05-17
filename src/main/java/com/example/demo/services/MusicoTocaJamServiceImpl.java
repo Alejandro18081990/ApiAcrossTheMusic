@@ -41,4 +41,8 @@ public class MusicoTocaJamServiceImpl implements ServiceInterface<MusicoTocaJam>
     public void delete(long id) {
         musicoTocaJam.deleteById(id);
     }
+
+    public void deleteByMusicoAndJamSession(long idMusico, long idJamSession) {
+        musicoTocaJam.deleteMusicoJam(idMusico, idJamSession);
+    }
 }

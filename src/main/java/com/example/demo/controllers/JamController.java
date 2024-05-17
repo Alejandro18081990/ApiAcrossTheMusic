@@ -70,9 +70,11 @@ public class JamController implements ControllerInterface<JamSession, JamSession
 
     @Override
     @Operation(summary = "Borra una jam encontrada por su id")
+    //@GetMapping(URL_BY_ID)
     public void delete(long id) {
         jamServiceImpl.delete(id);
     }
+
 
     @Override
     @Operation(summary = "Modifica una jamSession encontrada por su id")
