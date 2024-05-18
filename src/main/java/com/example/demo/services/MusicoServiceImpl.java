@@ -35,7 +35,7 @@ public class MusicoServiceImpl implements ServiceInterface<Musico> {
     }
 
     @Override
-    public Optional<Musico> findById(long id) {
+    public Optional<Musico> findById(Long id) {
         return musicoRepository.findById(id);
     }
 

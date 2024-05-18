@@ -28,7 +28,7 @@ public class GrupoServiceImpl implements ServiceInterface<Grupo> {
     }
 
     @Override
-    public Optional<Grupo> findById(long id) {
+    public Optional<Grupo> findById(Long id) {
         return grupoRepository.findById(id);
     }
 

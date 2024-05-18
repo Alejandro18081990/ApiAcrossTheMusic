@@ -109,6 +109,9 @@ INSERT INTO MUSICO_TOCA_JAM(id_musico,id_jam_session) values(2,2);
 INSERT INTO MUSICO_TOCA_JAM(id_musico,id_jam_session) values(3,2);
 INSERT INTO MUSICO_TOCA_JAM(id_musico,id_jam_session) values(4,2);
 INSERT INTO MUSICO_TOCA_JAM(id_musico,id_jam_session) values(5,1);
+INSERT INTO MUSICO_TOCA_JAM(id_musico,id_jam_session) values(5,3);
+INSERT INTO MUSICO_TOCA_JAM(id_musico,id_jam_session) values(5,4);
+INSERT INTO MUSICO_TOCA_JAM(id_musico,id_jam_session) values(5,5);
 
 INSERT INTO MUSICO_TOCA_GRUPO(idmusico,idgrupo) values(1,1);
 INSERT INTO MUSICO_TOCA_GRUPO(idmusico,idgrupo) values(8,1);

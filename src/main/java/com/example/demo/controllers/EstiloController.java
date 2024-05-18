@@ -60,8 +60,8 @@ public class EstiloController implements ControllerInterface<Estilo, EstiloDTO> 
     @Override
     @Operation(summary = "Modifica un estilo encontrado por su id")
     @PutMapping(ENDPOINT_BY_ID)
-    public ResponseEntity<Estilo> update(@RequestBody Estilo estiloDetails, @PathVariable long id) {
-        Optional<Estilo> estiloAModificar = estiloServiceImpl.findById(id);
+    public ResponseEntity<Estilo> update(@RequestBody Estilo estiloDetails) {
+        Optional<Estilo> estiloAModificar = estiloServiceImpl.findById(estiloDetails.getIdEstilo());
         if (!estiloAModificar.isPresent())
             return ResponseEntity.noContent().build();
         Estilo estiloModificado = estiloAModificar.get();
@@ -72,7 +72,7 @@ public class EstiloController implements ControllerInterface<Estilo, EstiloDTO> 
     @Override
     @Operation(summary = "Encuentra un estilo por su id")
     @GetMapping(ENDPOINT_BY_ID)
-    public ResponseEntity<EstiloDTO> findById(@PathVariable long id) {
+    public ResponseEntity<EstiloDTO> findById(@PathVariable Long id) {
         Optional<Estilo> estiloConsultado = estiloServiceImpl.findById(id);
         if (!estiloConsultado.isPresent())
             return ResponseEntity.noContent().build();

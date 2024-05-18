@@ -49,12 +49,12 @@ public class MusicoTocaInstrumentoController implements ControllerInterface<Musi
     }
 
     @Override
-    public ResponseEntity<MusicoTocaInstrumento> update(MusicoTocaInstrumento musicoTocaInstrumento, long id) {
+    public ResponseEntity<MusicoTocaInstrumento> update(MusicoTocaInstrumento musicoTocaInstrumento) {
         return null;
     }
 
     @Override
-    public ResponseEntity<MusicoTocaInstrumentoDTO> findById(long id) {
+    public ResponseEntity<MusicoTocaInstrumentoDTO> findById(Long id) {
         return null;
     }
 }

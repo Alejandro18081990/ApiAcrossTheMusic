@@ -57,14 +57,14 @@ public class InstrumentoController implements ControllerInterface<Instrumento, I
     }
 
     @Override
-    public ResponseEntity<Instrumento> update(Instrumento instrumentoDetails, long id) {
+    public ResponseEntity<Instrumento> update(Instrumento instrumentoDetails) {
         return null;
     }
 
     @Override
     @Operation(summary = "Devuelve un instrumento de tipo DTO encontrado por su id")
     @GetMapping("/instrumento/{id}")
-    public ResponseEntity<InstrumentoDTO> findById(@PathVariable (value ="id") long id) {
+    public ResponseEntity<InstrumentoDTO> findById(@PathVariable (value ="id") Long id) {
         Optional<Instrumento> instrumentoConsultado = instrumentosServiceImpl.findById(id);
         if (!instrumentoConsultado.isPresent())
             return ResponseEntity.noContent().build();

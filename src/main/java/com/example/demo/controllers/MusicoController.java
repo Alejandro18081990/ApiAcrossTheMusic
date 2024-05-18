@@ -73,7 +73,7 @@ public class MusicoController implements ControllerInterface<Musico, MusicoDTO> 
     @Override
     @Operation(summary = "Encuentra un músico por su id")
     @GetMapping(URL_BY_ID)
-    public ResponseEntity<MusicoDTO> findById(@PathVariable long id) {
+    public ResponseEntity<MusicoDTO> findById(@PathVariable Long id) {
         Optional<Musico> musicoConsultado = musicoServiceImpl.findById(id);
         if (!musicoConsultado.isPresent())
             return ResponseEntity.noContent().build();
@@ -90,8 +90,8 @@ public class MusicoController implements ControllerInterface<Musico, MusicoDTO> 
     @Override
     @Operation(summary = "Modifica un músico encontrandolo por su id")
     @PutMapping(URL_BY_ID)
-    public ResponseEntity<Musico> update(@RequestBody Musico musicoDetails, long id) {
-        Optional<Musico> musicoAModificar = musicoServiceImpl.findById(id);
+    public ResponseEntity<Musico> update(@RequestBody Musico musicoDetails) {
+        Optional<Musico> musicoAModificar = musicoServiceImpl.findById(musicoDetails.getIdMusico());
         if (!musicoAModificar.isPresent())
             return ResponseEntity.noContent().build();
         Musico musico = musicoAModificar.get();

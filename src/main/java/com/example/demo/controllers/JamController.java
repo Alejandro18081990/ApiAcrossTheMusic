@@ -61,7 +61,7 @@ public class JamController implements ControllerInterface<JamSession, JamSession
     @Override
     @Operation(summary = "Devuelve una jamSession encontrada por su id")
     @GetMapping(URL_BY_ID)
-    public ResponseEntity<JamSessionDto> findById(long id) {
+    public ResponseEntity<JamSessionDto> findById(@PathVariable Long id) {
         Optional<JamSession> jamConsultada = jamServiceImpl.findById(id);
         if (!jamConsultada.isPresent())
             return ResponseEntity.noContent().build();
@@ -78,8 +78,8 @@ public class JamController implements ControllerInterface<JamSession, JamSession
     @Override
     @Operation(summary = "Modifica una jamSession encontrada por su id")
     @PutMapping(URL_BY_ID)
-    public ResponseEntity<JamSession> update(@RequestBody JamSession jamDetails, long id) {
-        Optional<JamSession> jamAModificar = jamServiceImpl.findById(id);
+    public ResponseEntity<JamSession> update(@RequestBody JamSession jamDetails) {
+        Optional<JamSession> jamAModificar = jamServiceImpl.findById(jamDetails.getIdJamSession());
         if (!jamAModificar.isPresent())
             return ResponseEntity.noContent().build();
         JamSession jam = jamAModificar.get();

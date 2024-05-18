@@ -63,8 +63,8 @@ public class GrupoController implements ControllerInterface<Grupo, GrupoDTO> {
     @Override
     @Operation(summary = "Modifica un grupo encontrado por su id")
     @PutMapping(ENDPOINT_BY_ID)
-    public ResponseEntity<Grupo> update(Grupo grupoDetails, long id) {
-        Optional<Grupo> grupoAModifiar = grupoServiceImpl.findById(id);
+    public ResponseEntity<Grupo> update(Grupo grupoDetails) {
+        Optional<Grupo> grupoAModifiar = grupoServiceImpl.findById(grupoDetails.getIdGrupo());
         if (!grupoAModifiar.isPresent())
             return ResponseEntity.noContent().build();
         Grupo grupo = grupoAModifiar.get();
@@ -77,7 +77,7 @@ public class GrupoController implements ControllerInterface<Grupo, GrupoDTO> {
     @Override
     @Operation(summary = "Devuelve un grupo encontrado por su id")
     @GetMapping(ENDPOINT_BY_ID)
-    public ResponseEntity<GrupoDTO> findById(@PathVariable long id) {
+    public ResponseEntity<GrupoDTO> findById(@PathVariable Long id) {
         Optional<Grupo> grupoConsultado = grupoServiceImpl.findById(id);
         if (!grupoConsultado.isPresent())
             return ResponseEntity.noContent().build();

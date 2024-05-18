@@ -28,7 +28,7 @@ public class EstiloServiceImpl implements ServiceInterface<Estilo> {
     }
 
     @Override
-    public Optional<Estilo> findById(long id) {
+    public Optional<Estilo> findById(Long id) {
         return estiloRepository.findById(id);
     }
 

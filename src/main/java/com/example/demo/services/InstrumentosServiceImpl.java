@@ -28,7 +28,7 @@ public class InstrumentosServiceImpl implements ServiceInterface<Instrumento> {
     }
 
     @Override
-    public Optional<Instrumento> findById(long id) {
+    public Optional<Instrumento> findById(Long id) {
         return instrumentoRepository.findById(id);
     }
 

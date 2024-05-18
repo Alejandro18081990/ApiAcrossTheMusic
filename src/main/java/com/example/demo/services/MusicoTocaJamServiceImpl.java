@@ -28,7 +28,7 @@ public class MusicoTocaJamServiceImpl implements ServiceInterface<MusicoTocaJam>
     }
 
     @Override
-    public Optional<MusicoTocaJam> findById(long id) {
+    public Optional<MusicoTocaJam> findById(Long id) {
         return musicoTocaJam.findById(id);
     }
 

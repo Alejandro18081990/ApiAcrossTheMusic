@@ -13,9 +13,9 @@ public interface ControllerInterface<T, DTO> {
 
     void delete(long id);
 
-    ResponseEntity<T> update(T t, long id);
+    ResponseEntity<T> update(T t);
 
-    ResponseEntity<DTO> findById(long id);
+    ResponseEntity<DTO> findById(Long id);
 
 
 }

@@ -12,7 +12,7 @@ public interface ServiceInterface<T> {
 
     Page<T> findAll(Pageable pageable);
 
-    Optional<T> findById(long id);
+    Optional<T> findById(Long id);
 
     T save(T t);
 

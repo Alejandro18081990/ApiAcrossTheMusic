@@ -28,7 +28,7 @@ public class JamServiceImpl implements ServiceInterface<JamSession> {
     }
 
     @Override
-    public Optional<JamSession> findById(long id) {
+    public Optional<JamSession> findById(Long id) {
         return jamSessionRepository.findById(id);
     }
 

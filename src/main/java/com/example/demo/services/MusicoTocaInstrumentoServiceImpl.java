@@ -25,7 +25,7 @@ public class MusicoTocaInstrumentoServiceImpl implements ServiceInterface<Musico
     }
 
     @Override
-    public Optional<MusicoTocaInstrumento> findById(long id) {
+    public Optional<MusicoTocaInstrumento> findById(Long id) {
         return mtiRepository.findById(id);
     }
 
