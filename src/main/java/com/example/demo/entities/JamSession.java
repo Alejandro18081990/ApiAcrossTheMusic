@@ -17,7 +17,7 @@ public class JamSession {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long idJamSession;
+    private Long idJamSession;
 
     private String nombreJam;
 
@@ -29,7 +29,7 @@ public class JamSession {
 
     private String lugar;
 
-    @OneToMany(mappedBy = "jamSession")
+    @OneToMany(mappedBy = "jamSession", cascade = CascadeType.ALL)
     Set<MusicoTocaJam> jamSession;
 
 }
