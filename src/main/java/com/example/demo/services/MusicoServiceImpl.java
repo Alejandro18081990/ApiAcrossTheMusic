@@ -45,8 +45,8 @@ public class MusicoServiceImpl implements ServiceInterface<Musico> {
         return musicoRepository.save(musico);
     }
 
-    public List<Musico> findByEstiloAndInstrumento(String nombreInstrumento, String nombreEstilo) {
-        return musicoRepository.findByInstrumentoAndEstilo(nombreInstrumento, nombreEstilo);
+    public List<Musico> findByEstiloAndInstrumento(String nombreInstrumento, String nombreEstilo, int aniosExperiencia) {
+        return musicoRepository.findByInstrumentoAndEstilo(nombreInstrumento, nombreEstilo,aniosExperiencia);
     }
 
     public List<Musico> findMusicoByMusicoTocaJam(long idJam) {

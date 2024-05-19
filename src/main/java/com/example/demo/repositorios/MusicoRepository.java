@@ -20,9 +20,11 @@ public interface MusicoRepository extends JpaRepository<Musico, Long> {
             "JOIN m.musicoTocaEstilo mte " +
             "JOIN mte.estilo e " +
             "WHERE i.nombreInstrumento LIKE :nombreInstrumento " +
-            "AND e.nombreEstilo LIKE :nombreEstilo")
+            "AND e.nombreEstilo LIKE :nombreEstilo " +
+            "AND m.aniosExperiencia >= :aniosExperiencia")
     List<Musico> findByInstrumentoAndEstilo(@Param("nombreInstrumento") String nombreInstrumento,
-                                            @Param("nombreEstilo") String nombreEstilo);
+                                            @Param("nombreEstilo") String nombreEstilo,
+                                            @Param("aniosExperiencia") int aniosExperiencia);
 
 
     @Query("SELECT m FROM Musico m " +
