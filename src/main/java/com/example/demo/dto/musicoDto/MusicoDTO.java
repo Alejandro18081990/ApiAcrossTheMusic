@@ -16,6 +16,8 @@ public class MusicoDTO {
     private long idMusico;
     private String email;
     private String nombre;
+    private String apellido1;
+    private String apellido2;
     private int edad;
     private int aniosExperiencia;
     private List<MusicoTocaInstrumentoDTO> instrumentos;

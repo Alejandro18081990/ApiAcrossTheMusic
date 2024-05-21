@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
+import ch.qos.logback.core.CoreConstants;
 import com.example.demo.interfaces.ControllerInterface;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
@@ -89,20 +90,20 @@ public class MusicoController implements ControllerInterface<Musico, MusicoDTO> 
 
     @Override
     @Operation(summary = "Modifica un músico encontrandolo por su id")
-    @PutMapping(URL_BY_ID)
+    @PutMapping("musico/")
     public ResponseEntity<Musico> update(@RequestBody Musico musicoDetails) {
-        Optional<Musico> musicoAModificar = musicoServiceImpl.findById(musicoDetails.getIdMusico());
-        if (!musicoAModificar.isPresent())
+        Musico musicoAModificar = musicoServiceImpl.findMusicoByEmail(musicoDetails.getEmail());
+        System.out.println(musicoAModificar);
+        if (musicoAModificar == null)
             return ResponseEntity.noContent().build();
-        Musico musico = musicoAModificar.get();
-        musico.setNombre(musicoDetails.getNombre());
-        musico.setApellido1(musicoDetails.getApellido1());
-        musico.setApellido2(musicoDetails.getApellido2());
-        musico.setAniosExperiencia(musicoDetails.getAniosExperiencia());
-        musico.setEmail(musicoDetails.getEmail());
-        musico.setEdad(musicoDetails.getEdad());
-        musico.setFormacion(musicoDetails.getFormacion());
-        return ResponseEntity.ok().body(musicoServiceImpl.save(musico));
+        musicoAModificar.setNombre(musicoDetails.getNombre());
+        musicoAModificar.setApellido1(musicoDetails.getApellido1());
+        musicoAModificar.setApellido2(musicoDetails.getApellido2());
+        musicoAModificar.setAniosExperiencia(musicoDetails.getAniosExperiencia());
+        musicoAModificar.setEmail(musicoDetails.getEmail());
+        musicoAModificar.setEdad(musicoDetails.getEdad());
+        musicoAModificar.setFormacion(musicoDetails.getFormacion());
+        return ResponseEntity.ok().body(musicoServiceImpl.save(musicoAModificar));
     }
 
     @Operation(summary = "Devuelve todos los musicos que tocan un instrumento y estilos determinados")
@@ -114,7 +115,6 @@ public class MusicoController implements ControllerInterface<Musico, MusicoDTO> 
         List<MusicoDTO> musicosConsultaDto = new ArrayList<>();
         for (Musico musico : musicos)
             musicosConsultaDto.add(musicoDtoConverter.convertirADTO(musico));
-        System.out.println("ConsultaMusicosByInstrumentoByEstilo " + musicos);
         return ResponseEntity.ok(musicosConsultaDto);
     }
 
@@ -124,7 +124,6 @@ public class MusicoController implements ControllerInterface<Musico, MusicoDTO> 
         Musico musicoConsultado = musicoServiceImpl.findMusicoByEmail(email);
         if (musicoConsultado == null)
             return ResponseEntity.noContent().build();
-        System.out.println(email);
         return ResponseEntity.ok(musicoDtoConverter.convertirADTO(musicoConsultado));
     }
 }

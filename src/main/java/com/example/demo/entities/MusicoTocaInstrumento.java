@@ -18,7 +18,7 @@ public class MusicoTocaInstrumento implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    Long id;
+    private Long id;
 
 
     @ManyToOne
