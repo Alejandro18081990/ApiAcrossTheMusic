@@ -5,6 +5,7 @@ import java.util.Set;
 
 import com.example.demo.entities.Instrumento;
 import com.example.demo.entities.Musico;
+import jakarta.transaction.Transactional;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
@@ -17,4 +18,6 @@ public interface MusicoTocaInstrumentoRepository extends JpaRepository<MusicoToc
     List<MusicoTocaInstrumento> findByInstrumentoNombreInstrumento(String nombreInstrumento);
 
     MusicoTocaInstrumento findByMusicoIdMusicoAndInstrumentoIdInstrumento(Long musico, Long instrumento);
+    @Transactional
+    void deleteByMusicoIdMusico(Long musico);
 }

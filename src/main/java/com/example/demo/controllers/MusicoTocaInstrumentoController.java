@@ -38,10 +38,11 @@ public class MusicoTocaInstrumentoController implements ControllerInterface<Musi
         return null;
     }
 
-    @Operation(summary = "Devuelve el id del musico y el id del instrumento que toca")
+    @Operation(summary = "Inserta un registro en musicoTocaInstrumento")
     @PostMapping("/")
     @Override
     public ResponseEntity<MusicoTocaInstrumento> save(@RequestBody MusicoTocaInstrumento musicoTocaInstrumento) {
+        System.out.println(musicoTocaInstrumento.getMusico());
         MusicoTocaInstrumento newMTI = musicoTocaInstrumentoRepository.save(musicoTocaInstrumento);
         return ResponseEntity.status(HttpStatus.CREATED).body(newMTI);
     }
@@ -55,24 +56,30 @@ public class MusicoTocaInstrumentoController implements ControllerInterface<Musi
     @Operation(summary = "Modifica un registro de la tabla MusicoTocaInstrumento")
     @PutMapping("/")
     public ResponseEntity<MusicoTocaInstrumento> update(@RequestBody MusicoTocaInstrumento musicoTocaInstrumentoDetalle) {
-        Optional<MusicoTocaInstrumento> mtiAModificar = musicoTocaInstrumentoRepository.findById(musicoTocaInstrumentoDetalle.getId());
-        if (!mtiAModificar.isPresent())
-            return ResponseEntity.noContent().build();
-        MusicoTocaInstrumento musicoAModificar = mtiAModificar.get();
-        musicoAModificar.setInstrumento(musicoTocaInstrumentoDetalle.getInstrumento());
-        return ResponseEntity.ok(musicoTocaInstrumentoRepository.save(musicoAModificar));
+        //System.out.println("====================================================Instrumento" + musicoTocaInstrumentoDetalle.getInstrumento().getNombreInstrumento());
+      //  Optional<MusicoTocaInstrumento> mtiAModificar = musicoTocaInstrumentoRepository.findById(musicoTocaInstrumentoDetalle.getId());
+       // if (!mtiAModificar.isPresent())
+         //   return ResponseEntity.noContent().build();
+        //MusicoTocaInstrumento musicoAModificar = mtiAModificar.get();
+        //musicoAModificar.setInstrumento(musicoTocaInstrumentoDetalle.getInstrumento());
+        return null;
     }
 
     @Operation(summary = "Devuelve un registro de MusicoTocaInstrumento a través de Musico y a través de Instrumento")
     @GetMapping("/{idMusico}/{idInstrumento}")
     public ResponseEntity<MusicoTocaInstrumentoDTO> findByMusicoAndInstrumento(@PathVariable Long idMusico, @PathVariable Long idInstrumento) {
-
         MusicoTocaInstrumento mtiConsultado = musicoTocaInstrumentoRepository.findByMusicoIdMusicoAndInstrumentoIdInstrumento(idMusico, idInstrumento);
-        System.out.println("====================================================Id" + idInstrumento);
+        //System.out.println("====================================================Id" + idInstrumento);
         if (mtiConsultado == null)
             return ResponseEntity.noContent().build();
         MusicoTocaInstrumentoDTO mtiDTO = mtiDTOConverter.convertirADTO(mtiConsultado);
         return ResponseEntity.ok(mtiDTO);
+    }
+
+    @Operation(summary = "Borra los registros de MusicoTocaInstrumento que coincidan con el id del músico recibido")
+    @DeleteMapping  ("/{idMusico}")
+    public void deleteMTIbyMusico(@PathVariable Long idMusico) {
+        musicoTocaInstrumentoRepository.deleteByMusicoIdMusico(idMusico);
     }
 
     @Override

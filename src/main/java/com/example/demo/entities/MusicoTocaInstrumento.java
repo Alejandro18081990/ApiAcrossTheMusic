@@ -3,6 +3,7 @@ package com.example.demo.entities;
 import java.io.Serializable;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
 import lombok.Getter;
@@ -19,7 +20,6 @@ public class MusicoTocaInstrumento implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
 
     @ManyToOne
     @JoinColumn(name = "musico")
