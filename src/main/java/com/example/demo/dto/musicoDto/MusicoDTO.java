@@ -24,5 +24,5 @@ public class MusicoDTO {
     private List<MusicoTocaEstiloDTO> estilos;
     boolean tieneFormacion;
     private String formacion;
-    private Blob video;
+    private boolean esAdmin;
 }

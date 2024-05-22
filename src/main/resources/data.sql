@@ -1,28 +1,28 @@
 --Sentencias de inserción de prueba
-INSERT IGNORE INTO MUSICO(email,nombre,apellido1,apellido2,edad,anios_experiencia,formacion,tiene_formacion)
-	VALUES('Alex@gmail.com','Alejandro','Núñez','Rodríguez',33,19,'Estudios_de_música',true);
-INSERT IGNORE INTO MUSICO(email,nombre,apellido1,apellido2,edad,anios_experiencia,formacion,tiene_formacion)
-	VALUES('Raquel@gmail.com','Raquel','Romero','Reina',32,12,'Estudios_de_músicoterapia',true);	
-INSERT IGNORE INTO MUSICO(email,nombre,apellido1,apellido2,edad,anios_experiencia,formacion,tiene_formacion)
-	VALUES('Noah@gmail.com','Noah','Rivera','Núñez',11,2,'Musica_cole',true);	
-INSERT IGNORE INTO MUSICO(email,nombre,apellido1,apellido2,edad,anios_experiencia,formacion,tiene_formacion)
-	VALUES('Leoh@gmail.com','Leo','Rivera','Núñez',15,2,'Musica_cole',true);	
-INSERT IGNORE INTO MUSICO(email,nombre,apellido1,apellido2,edad,anios_experiencia,formacion,tiene_formacion)
-	VALUES('Lucia@gmail.com','Lucia','Rodríguez','Ramos',67,10,'-',false);	
-INSERT IGNORE INTO MUSICO(email,nombre,apellido1,apellido2,edad,anios_experiencia,formacion,tiene_formacion)
-	VALUES('Manolo@gmail.com','Manolo','Núñez','Lopez',74,20,'-',false);	
-INSERT IGNORE INTO MUSICO(email,nombre,apellido1,apellido2,edad,anios_experiencia,formacion,tiene_formacion)
-	VALUES('Esther@gmail.com','Esther','Núñez','Rodríguez',48,20,'Estudios_de_música',true);
-INSERT IGNORE INTO MUSICO(email,nombre,apellido1,apellido2,edad,anios_experiencia,formacion,tiene_formacion)
-	VALUES('Pluk@gmail.com','Jose Luis','Núñez','Rodríguez',33,19,'Estudios_de_música',true);
-INSERT IGNORE INTO MUSICO(email,nombre,apellido1,apellido2,edad,anios_experiencia,formacion,tiene_formacion)
-	VALUES('David@gmail.com','David','Jimenez','Real',40,20,'Estudios_de_música',true);
-INSERT IGNORE INTO MUSICO(email,nombre,apellido1,apellido2,edad,anios_experiencia,formacion,tiene_formacion)
-	VALUES('DavidG@gmail.com','David','Gonzalez','Roales',40,20,'Estudios_de_música',true);
-INSERT IGNORE INTO MUSICO(email,nombre,apellido1,apellido2,edad,anios_experiencia,formacion,tiene_formacion)
-	VALUES('Edu@gmail.com','Edu','-','-',40,20,'Estudios_de_música',true);
-INSERT IGNORE INTO MUSICO(email,nombre,apellido1,apellido2,edad,anios_experiencia,formacion,tiene_formacion)
-	VALUES('raquel91@gmail.com','Raquel','Romero','Reina',33,10,'Estudios superiores de música',true);
+INSERT IGNORE INTO MUSICO(email,nombre,apellido1,apellido2,edad,anios_experiencia,formacion,tiene_formacion,permiso)
+	VALUES('Alex@gmail.com','Alejandro','Núñez','Rodríguez',33,19,'Estudios_de_música',true,'ADMIN');
+INSERT IGNORE INTO MUSICO(email,nombre,apellido1,apellido2,edad,anios_experiencia,formacion,tiene_formacion,permiso)
+	VALUES('Raquel@gmail.com','Raquel','Romero','Reina',32,12,'Estudios_de_músicoterapia',true,'USER');
+INSERT IGNORE INTO MUSICO(email,nombre,apellido1,apellido2,edad,anios_experiencia,formacion,tiene_formacion,permiso)
+	VALUES('Noah@gmail.com','Noah','Rivera','Núñez',11,2,'Musica_cole',true,'USER');
+INSERT IGNORE INTO MUSICO(email,nombre,apellido1,apellido2,edad,anios_experiencia,formacion,tiene_formacion,permiso)
+	VALUES('Leoh@gmail.com','Leo','Rivera','Núñez',15,2,'Musica_cole',true,'USER');
+INSERT IGNORE INTO MUSICO(email,nombre,apellido1,apellido2,edad,anios_experiencia,formacion,tiene_formacion,permiso)
+	VALUES('Lucia@gmail.com','Lucia','Rodríguez','Ramos',67,10,'-',false,'USER');
+INSERT IGNORE INTO MUSICO(email,nombre,apellido1,apellido2,edad,anios_experiencia,formacion,tiene_formacion,permiso)
+	VALUES('Manolo@gmail.com','Manolo','Núñez','Lopez',74,20,'-',false,'USER');
+INSERT IGNORE INTO MUSICO(email,nombre,apellido1,apellido2,edad,anios_experiencia,formacion,tiene_formacion,permiso)
+	VALUES('Esther@gmail.com','Esther','Núñez','Rodríguez',48,20,'Estudios_de_música',true,'USER');
+INSERT IGNORE INTO MUSICO(email,nombre,apellido1,apellido2,edad,anios_experiencia,formacion,tiene_formacion,permiso)
+	VALUES('Pluk@gmail.com','Jose Luis','Núñez','Rodríguez',33,19,'Estudios_de_música',true,'USER');
+INSERT IGNORE INTO MUSICO(email,nombre,apellido1,apellido2,edad,anios_experiencia,formacion,tiene_formacion,permiso)
+	VALUES('David@gmail.com','David','Jimenez','Real',40,20,'Estudios_de_música',true,'USER');
+INSERT IGNORE INTO MUSICO(email,nombre,apellido1,apellido2,edad,anios_experiencia,formacion,tiene_formacion,permiso)
+	VALUES('DavidG@gmail.com','David','Gonzalez','Roales',40,20,'Estudios_de_música',true,'USER');
+INSERT IGNORE INTO MUSICO(email,nombre,apellido1,apellido2,edad,anios_experiencia,formacion,tiene_formacion,permiso)
+	VALUES('Edu@gmail.com','Edu','-','-',40,20,'Estudios_de_música',true,'USER');
+INSERT IGNORE INTO MUSICO(email,nombre,apellido1,apellido2,edad,anios_experiencia,formacion,tiene_formacion,permiso)
+	VALUES('raquel91@gmail.com','Raquel','Romero','Reina',33,10,'Estudios superiores de música',true,'USER');
 --11 estilos
 INSERT IGNORE INTO ESTILO(nombre_estilo) VALUES ('Metal_progresivo');
 INSERT IGNORE INTO ESTILO(nombre_estilo) VALUES ('Rock');

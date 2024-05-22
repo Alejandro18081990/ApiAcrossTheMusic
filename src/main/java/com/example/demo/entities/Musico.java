@@ -3,15 +3,9 @@ package com.example.demo.entities;
 import java.util.List;
 import java.util.Set;
 
+import com.example.demo.Permisos;
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.FetchType;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.OneToMany;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.*;
 
 @Getter
@@ -35,6 +29,8 @@ public class Musico {
     private int aniosExperiencia;
     private String formacion;
     private boolean tieneFormacion;
+    @Enumerated(EnumType.STRING)
+    private Permisos permiso;
 
     @OneToMany(mappedBy = "musico", fetch = FetchType.EAGER)
     Set<MusicoTocaInstrumento> musicoTocaInstrumento;
@@ -52,4 +48,5 @@ public class Musico {
 
     @OneToMany(mappedBy = "musico")
     private List<Video> misVideos;
+
 }
