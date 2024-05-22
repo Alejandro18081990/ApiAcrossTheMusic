@@ -58,7 +58,7 @@ public class MusicoTocaJamController implements ControllerInterface<MusicoTocaJa
     @Override
     @Operation(summary = "Borra a un músico de la jam")
     @DeleteMapping("/{id}")
-    public void delete(@PathVariable("id") long id) {
+    public void delete(@PathVariable("id") Long id) {
         musicoTocaJamService.delete(id);
     }
 

@@ -84,7 +84,7 @@ public class MusicoController implements ControllerInterface<Musico, MusicoDTO> 
     @Override
     @Operation(summary = "Borra un músico localizandolo por id")
     @DeleteMapping(URL_BY_ID)
-    public void delete(@PathVariable long id) {
+    public void delete(@PathVariable Long id) {
         musicoServiceImpl.delete(id);
     }
 

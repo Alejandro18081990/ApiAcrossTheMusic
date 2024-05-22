@@ -11,7 +11,7 @@ public interface ControllerInterface<T, DTO> {
 
     ResponseEntity<T> save(T t);
 
-    void delete(long id);
+    void delete(Long id);
 
     ResponseEntity<T> update(T t);
 

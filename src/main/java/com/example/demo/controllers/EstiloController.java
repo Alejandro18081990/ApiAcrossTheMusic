@@ -53,7 +53,7 @@ public class EstiloController implements ControllerInterface<Estilo, EstiloDTO> 
     @Override
     @Operation(summary = "Borra un estilo encontrado por su id")
     @DeleteMapping(ENDPOINT_BY_ID)
-    public void delete(@PathVariable long id) {
+    public void delete(@PathVariable Long id) {
         estiloServiceImpl.delete(id);
     }
 

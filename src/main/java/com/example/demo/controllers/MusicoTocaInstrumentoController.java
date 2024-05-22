@@ -48,7 +48,7 @@ public class MusicoTocaInstrumentoController implements ControllerInterface<Musi
     }
 
     @Override
-    public void delete(long id) {
+    public void delete(Long id) {
 
     }
 

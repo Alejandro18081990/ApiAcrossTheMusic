@@ -52,7 +52,7 @@ public class InstrumentoController implements ControllerInterface<Instrumento, I
     @Override
     @Operation(summary = "Borra un instrumento encontrado por su id")
     @DeleteMapping("/instrumento/{id}")
-    public void delete(@PathVariable(value ="id") long id) {
+    public void delete(@PathVariable(value ="id") Long id) {
         instrumentosServiceImpl.delete(id);
     }
 

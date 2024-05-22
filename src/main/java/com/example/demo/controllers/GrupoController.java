@@ -56,7 +56,7 @@ public class GrupoController implements ControllerInterface<Grupo, GrupoDTO> {
     @Override
     @Operation(summary = "Borra un grupo encontrado por su id")
     @DeleteMapping(ENDPOINT_BY_ID)
-    public void delete(long id) {
+    public void delete(Long id) {
         grupoServiceImpl.delete(id);
     }
 
