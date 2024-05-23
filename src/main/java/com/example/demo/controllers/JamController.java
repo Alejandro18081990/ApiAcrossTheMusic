@@ -74,6 +74,7 @@ public class JamController implements ControllerInterface<JamSession, JamSession
     public void delete(@PathVariable Long id) {
         jamServiceImpl.delete(id);
     }
+
     
     @Override
     @Operation(summary = "Modifica una jamSession encontrada por su id")

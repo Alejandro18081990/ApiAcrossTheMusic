@@ -68,12 +68,20 @@ public class MusicoTocaJamController implements ControllerInterface<MusicoTocaJa
         musicoTocaJamService.deleteByMusicoAndJamSession(idMusico, idJamSession);
     }
 
+    @Operation(summary = "Borra todos los registros de la tabla MusicoTocaJam mediante el id del musico recibido")
+    @DeleteMapping("/musico/{id}")
+    public void deleteMusicoJamByIdMusico(@PathVariable Long id) {
+        musicoTocaJamService.deleteMusicoJamByMusicoIdMusico(id);
+    }
+
     @Override
+    @Operation (summary = "Modifica un registro de MusicoTocaJam TODO")
     public ResponseEntity<MusicoTocaJam> update(MusicoTocaJam musicoTocaJam) {
         return null;
     }
 
     @Override
+    @Operation (summary = "eNCUE un registro de MusicoTocaJam TODO")
     public ResponseEntity<MusicoTocaJamDTO> findById(Long id) {
         return null;
     }
