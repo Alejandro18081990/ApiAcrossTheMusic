@@ -117,3 +117,6 @@ INSERT INTO MUSICO_TOCA_GRUPO(idmusico,idgrupo) values(8,1);
 INSERT INTO MUSICO_TOCA_GRUPO(idmusico,idgrupo) values(9,1);
 INSERT INTO MUSICO_TOCA_GRUPO(idmusico,idgrupo) values(10,1);
 INSERT INTO MUSICO_TOCA_GRUPO(idmusico,idgrupo) values(11,1);
+
+INSERT INTO MENSAJE (mensaje) VALUES("Hola");
+INSERT INTO MUSICO_MENSAJE (musico_remitente,musico_destinatario,mensaje) VALUES(1,2,1);

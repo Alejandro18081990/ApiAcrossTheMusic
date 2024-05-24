@@ -46,10 +46,9 @@ public class Musico {
     @OneToMany(mappedBy = "musico")
     Set<MusicoTocaGrupo> musicoTocaGrupo;
 
-    @OneToMany(mappedBy = "musico")
-    private List<Video> misVideos;
+    @OneToMany(mappedBy = "musicoRemitente")
+    private Set<MusicoMensaje> musicoRemitente;
 
-    @OneToMany(mappedBy = "musico")
-    Set<Mensaje> buzonEntrada;
-
+    @OneToMany(mappedBy = "musicoDestinatario")
+    private Set<MusicoMensaje> musicoMensaje;
 }

@@ -6,6 +6,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.Set;
+
 @Getter
 @Setter
 @AllArgsConstructor
@@ -21,7 +23,8 @@ public class Mensaje {
     @Column(length = 200)
     private String mensaje;
 
-    @ManyToOne
-    @JoinColumn(name = "musico")
-    private Musico musico;
+    @OneToMany(mappedBy = "mensaje")
+    private Set<MusicoMensaje> musicoMensaje;
+
+
 }
