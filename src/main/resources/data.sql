@@ -1,46 +1,46 @@
 --Sentencias de inserción de prueba
 INSERT IGNORE INTO MUSICO(email,nombre,apellido1,apellido2,edad,anios_experiencia,formacion,tiene_formacion,permiso)
-	VALUES('Alex@gmail.com','Alejandro','Núñez','Rodríguez',33,19,'Estudios_de_música',true,'ADMIN');
+	VALUES('Alex@gmail.com','Alejandro','Núñez','Rodríguez',33,19,'Estudios de música',true,'ADMIN');
 INSERT IGNORE INTO MUSICO(email,nombre,apellido1,apellido2,edad,anios_experiencia,formacion,tiene_formacion,permiso)
-	VALUES('Raquel@gmail.com','Raquel','Romero','Reina',32,12,'Estudios_de_músicoterapia',true,'USER');
+	VALUES('Raquel@gmail.com','Raquel','Romero','Reina',32,12,'Estudios de músicoterapia',true,'USER');
 INSERT IGNORE INTO MUSICO(email,nombre,apellido1,apellido2,edad,anios_experiencia,formacion,tiene_formacion,permiso)
-	VALUES('Noah@gmail.com','Noah','Rivera','Núñez',11,2,'Musica_cole',true,'USER');
+	VALUES('Noah@gmail.com','Noah','Rivera','Núñez',11,2,'Musica cole',true,'USER');
 INSERT IGNORE INTO MUSICO(email,nombre,apellido1,apellido2,edad,anios_experiencia,formacion,tiene_formacion,permiso)
-	VALUES('Leoh@gmail.com','Leo','Rivera','Núñez',15,2,'Musica_cole',true,'USER');
+	VALUES('Leoh@gmail.com','Leo','Rivera','Núñez',15,2,'Musica cole',true,'USER');
 INSERT IGNORE INTO MUSICO(email,nombre,apellido1,apellido2,edad,anios_experiencia,formacion,tiene_formacion,permiso)
 	VALUES('Lucia@gmail.com','Lucia','Rodríguez','Ramos',67,10,'-',false,'USER');
 INSERT IGNORE INTO MUSICO(email,nombre,apellido1,apellido2,edad,anios_experiencia,formacion,tiene_formacion,permiso)
 	VALUES('Manolo@gmail.com','Manolo','Núñez','Lopez',74,20,'-',false,'USER');
 INSERT IGNORE INTO MUSICO(email,nombre,apellido1,apellido2,edad,anios_experiencia,formacion,tiene_formacion,permiso)
-	VALUES('Esther@gmail.com','Esther','Núñez','Rodríguez',48,20,'Estudios_de_música',true,'USER');
+	VALUES('Esther@gmail.com','Esther','Núñez','Rodríguez',48,20,'Estudios de música',true,'USER');
 INSERT IGNORE INTO MUSICO(email,nombre,apellido1,apellido2,edad,anios_experiencia,formacion,tiene_formacion,permiso)
-	VALUES('Pluk@gmail.com','Jose Luis','Núñez','Rodríguez',33,19,'Estudios_de_música',true,'USER');
+	VALUES('Pluk@gmail.com','Jose Luis','Núñez','Rodríguez',33,19,'Estudios de música',true,'USER');
 INSERT IGNORE INTO MUSICO(email,nombre,apellido1,apellido2,edad,anios_experiencia,formacion,tiene_formacion,permiso)
-	VALUES('David@gmail.com','David','Jimenez','Real',40,20,'Estudios_de_música',true,'USER');
+	VALUES('David@gmail.com','David','Jimenez','Real',40,20,'Estudios de música',true,'USER');
 INSERT IGNORE INTO MUSICO(email,nombre,apellido1,apellido2,edad,anios_experiencia,formacion,tiene_formacion,permiso)
-	VALUES('DavidG@gmail.com','David','Gonzalez','Roales',40,20,'Estudios_de_música',true,'USER');
+	VALUES('DavidG@gmail.com','David','Gonzalez','Roales',40,20,'Estudios de música',true,'USER');
 INSERT IGNORE INTO MUSICO(email,nombre,apellido1,apellido2,edad,anios_experiencia,formacion,tiene_formacion,permiso)
-	VALUES('Edu@gmail.com','Edu','-','-',40,20,'Estudios_de_música',true,'USER');
+	VALUES('Edu@gmail.com','Edu','-','-',40,20,'Estudios de música',true,'USER');
 INSERT IGNORE INTO MUSICO(email,nombre,apellido1,apellido2,edad,anios_experiencia,formacion,tiene_formacion,permiso)
 	VALUES('raquel91@gmail.com','Raquel','Romero','Reina',33,10,'Estudios superiores de música',true,'USER');
 --11 estilos
-INSERT IGNORE INTO ESTILO(nombre_estilo) VALUES ('Metal_progresivo');
+INSERT IGNORE INTO ESTILO(nombre_estilo) VALUES ('Metal progresivo');
 INSERT IGNORE INTO ESTILO(nombre_estilo) VALUES ('Rock');
 INSERT IGNORE INTO ESTILO(nombre_estilo) VALUES ('Pop');
-INSERT IGNORE INTO ESTILO(nombre_estilo) VALUES ('Heavy_metal_clasico');
+INSERT IGNORE INTO ESTILO(nombre_estilo) VALUES ('Heavy metal clasico');
 INSERT IGNORE INTO ESTILO(nombre_estilo) VALUES ('Jazz');
 INSERT IGNORE INTO ESTILO(nombre_estilo) VALUES ('Funk');
 INSERT IGNORE INTO ESTILO(nombre_estilo) VALUES ('Soul');
-INSERT IGNORE INTO ESTILO(nombre_estilo) VALUES ('Musica_clasica');
+INSERT IGNORE INTO ESTILO(nombre_estilo) VALUES ('Musica clasica');
 INSERT IGNORE INTO ESTILO(nombre_estilo) VALUES ('Flamenco');
 INSERT IGNORE INTO ESTILO(nombre_estilo) VALUES ('Rap');
 INSERT IGNORE INTO ESTILO(nombre_estilo) VALUES ('Blues');
 --12 instrumentos
-INSERT IGNORE INTO INSTRUMENTO(nombre_instrumento) values ('Guitarra_eléctrica');
+INSERT IGNORE INTO INSTRUMENTO(nombre_instrumento) values ('Guitarra eléctrica');
 INSERT INTO INSTRUMENTO (NOMBRE_INSTRUMENTO) VALUES ("Bateria");
 INSERT INTO INSTRUMENTO (NOMBRE_INSTRUMENTO) VALUES ("Piano");
-INSERT INTO INSTRUMENTO (NOMBRE_INSTRUMENTO) VALUES ("Guitarra_clasica");
-INSERT INTO INSTRUMENTO (NOMBRE_INSTRUMENTO) VALUES ("Guitarra_espaniola");
+INSERT INTO INSTRUMENTO (NOMBRE_INSTRUMENTO) VALUES ("Guitarra clasica");
+INSERT INTO INSTRUMENTO (NOMBRE_INSTRUMENTO) VALUES ("Guitarra española");
 INSERT INTO INSTRUMENTO (NOMBRE_INSTRUMENTO) VALUES ("Bajo");
 INSERT INTO INSTRUMENTO (NOMBRE_INSTRUMENTO) VALUES ("Violin");
 INSERT INTO INSTRUMENTO (NOMBRE_INSTRUMENTO) VALUES ("Contrabajo");

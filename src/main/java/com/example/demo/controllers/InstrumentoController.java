@@ -43,7 +43,8 @@ public class InstrumentoController implements ControllerInterface<Instrumento, I
     @Override
     @Operation(summary = "Guarda un instrumento")
     @PostMapping("/instrumento/")
-    public ResponseEntity<Instrumento> save(Instrumento instrumento) {
+    public ResponseEntity<Instrumento> save(@RequestBody Instrumento instrumento) {
+        System.out.println(instrumento.getNombreInstrumento());
         if (instrumento == null)
             return ResponseEntity.noContent().build();
         return ResponseEntity.ok(instrumentosServiceImpl.save(instrumento));
@@ -52,7 +53,7 @@ public class InstrumentoController implements ControllerInterface<Instrumento, I
     @Override
     @Operation(summary = "Borra un instrumento encontrado por su id")
     @DeleteMapping("/instrumento/{id}")
-    public void delete(@PathVariable(value ="id") Long id) {
+    public void delete(@PathVariable(value = "id") Long id) {
         instrumentosServiceImpl.delete(id);
     }
 
@@ -64,7 +65,7 @@ public class InstrumentoController implements ControllerInterface<Instrumento, I
     @Override
     @Operation(summary = "Devuelve un instrumento de tipo DTO encontrado por su id")
     @GetMapping("/instrumento/{id}")
-    public ResponseEntity<InstrumentoDTO> findById(@PathVariable (value ="id") Long id) {
+    public ResponseEntity<InstrumentoDTO> findById(@PathVariable(value = "id") Long id) {
         Optional<Instrumento> instrumentoConsultado = instrumentosServiceImpl.findById(id);
         if (!instrumentoConsultado.isPresent())
             return ResponseEntity.noContent().build();

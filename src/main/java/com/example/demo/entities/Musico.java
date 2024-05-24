@@ -49,4 +49,7 @@ public class Musico {
     @OneToMany(mappedBy = "musico")
     private List<Video> misVideos;
 
+    @OneToMany(mappedBy = "musico")
+    Set<Mensaje> buzonEntrada;
+
 }
