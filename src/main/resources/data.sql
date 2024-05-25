@@ -118,16 +118,7 @@ INSERT INTO MUSICO_TOCA_GRUPO(idmusico,idgrupo) values(9,1);
 INSERT INTO MUSICO_TOCA_GRUPO(idmusico,idgrupo) values(10,1);
 INSERT INTO MUSICO_TOCA_GRUPO(idmusico,idgrupo) values(11,1);
 
-INSERT INTO MENSAJE (mensaje) VALUES("Hola");
 --INSERT INTO MUSICO_MENSAJE (musico_remitente,musico_destinatario,mensaje) VALUES(1,2,1);
-
 --INSERT INTO MENSAJE (mensaje) VALUES("Hola");
-INSERT INTO MUSICO_MENSAJE (musico_remitente,musico_destinatario,cuerpo_mensaje) VALUES(1,12,"¿Hola qué tal?");
-INSERT INTO MUSICO_MENSAJE (musico_remitente,musico_destinatario,cuerpo_mensaje) VALUES(1,12,"¿Hola qué tal?");
-INSERT INTO MUSICO_MENSAJE (musico_remitente,musico_destinatario,cuerpo_mensaje) VALUES(2,12,"¿Hola qué tal?");
-INSERT INTO MUSICO_MENSAJE (musico_remitente,musico_destinatario,cuerpo_mensaje) VALUES(2,12,"¿Hola qué tal?");
-INSERT INTO MUSICO_MENSAJE (musico_remitente,musico_destinatario,cuerpo_mensaje) VALUES(3,12,"Músicos!!");
-INSERT INTO MUSICO_MENSAJE (musico_remitente,musico_destinatario,cuerpo_mensaje) VALUES(4,12,"Músicos!!");
-INSERT INTO MUSICO_MENSAJE (musico_remitente,musico_destinatario,cuerpo_mensaje) VALUES(5,12,"Hacen falta músicos con urgencia");
-INSERT INTO MUSICO_MENSAJE (musico_remitente,musico_destinatario,cuerpo_mensaje) VALUES(2,12,"Busco músico para concierto");
-INSERT INTO MUSICO_MENSAJE (musico_remitente,musico_destinatario,cuerpo_mensaje) VALUES(5,12,"Buscamos músicos");
+--INSERT INTO MUSICO_MENSAJE (musico_remitente,musico_destinatario,cuerpo_mensaje) VALUES(1,12,"¿Hola qué tal?");
+--INSERT INTO MUSICO_MENSAJE (musico_remitente,musico_destinatario,cuerpo_mensaje) VALUES(1,12,"¿Hola qué tal?");

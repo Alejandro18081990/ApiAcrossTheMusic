@@ -14,6 +14,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -76,8 +78,14 @@ public class MusicoMensajeController implements ControllerInterface<MusicoMensaj
             return ResponseEntity.noContent().build();
         List<MusicoMensaje> misMensajes = musicoServiceImpl.findMusicoMensajeByMusico(id);
         List<MusicoMensajeDTO> misMensajesDTO = new ArrayList<>();
-        for (MusicoMensaje mm : misMensajes)
-            misMensajesDTO.add(musicoMensajeDTOConverter.convertirDto(mm));
+
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm");
+        for (MusicoMensaje mm : misMensajes) {
+            String fechaParseada = sdf.format(mm.getFechaEnvio());
+            MusicoMensajeDTO mmDTO = musicoMensajeDTOConverter.convertirDto(mm);
+            mmDTO.setFechaEnvio(fechaParseada);
+            misMensajesDTO.add(mmDTO);
+        }
         return ResponseEntity.ok(misMensajesDTO);
     }
 }

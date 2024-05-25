@@ -15,5 +15,5 @@ public class MusicoMensajeDTO {
     private MusicoDetalleMensajeDTO musicoRemitente;
     private MusicoDetalleMensajeDTO musicoDestinatario;
     private String cuerpoMensaje;
-    private Date fechaRecepcion ;
+    private String fechaEnvio ;
 }
