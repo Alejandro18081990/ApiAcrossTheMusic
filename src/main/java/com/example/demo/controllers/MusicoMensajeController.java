@@ -1,32 +1,22 @@
 package com.example.demo.controllers;
 
-import com.example.demo.dto.musicoDto.MusicoDTO;
-import com.example.demo.dto.musicoDto.MusicoDetalleMensajeDTO;
-import com.example.demo.dto.musicoDto.MusicoDtoConverter;
 import com.example.demo.dto.musicoMensajeDTO.MusicoMensajeDTO;
 import com.example.demo.dto.musicoMensajeDTO.MusicoMensajeDTOConverter;
-import com.example.demo.entities.Musico;
 import com.example.demo.entities.MusicoMensaje;
 import com.example.demo.interfaces.ControllerInterface;
-import com.example.demo.repositorios.EstiloRepository;
-import com.example.demo.repositorios.JamSessionRepository;
-import com.example.demo.repositorios.MusicoMensajeRepository;
-import com.example.demo.repositorios.MusicoRepository;
 import com.example.demo.services.MusicoMensajeServiceImpl;
-import com.example.demo.services.MusicoServiceImpl;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
-import java.util.Optional;
 
 @RestController
 @RequiredArgsConstructor
@@ -60,6 +50,7 @@ public class MusicoMensajeController implements ControllerInterface<MusicoMensaj
     public ResponseEntity<MusicoMensaje> save(@RequestBody MusicoMensaje musicoMensaje) {
         if (musicoMensaje == null)
             return ResponseEntity.noContent().build();
+        musicoMensaje.setFechaEnvio(new Date());
         return ResponseEntity.ok(musicoServiceImpl.save(musicoMensaje));
     }
 
@@ -80,7 +71,7 @@ public class MusicoMensajeController implements ControllerInterface<MusicoMensaj
 
     @GetMapping("/{id}")
     @Operation(summary = "Devuelve todos los registros de MusicoMensaje que coinciden con la idMusico recibida")
-    public ResponseEntity<List<MusicoMensajeDTO>> findMusicoMensajeByMusido(@PathVariable Long id) {
+    public ResponseEntity<List<MusicoMensajeDTO>> findMusicoMensajeByMusicoId(@PathVariable Long id) {
         if (id == null)
             return ResponseEntity.noContent().build();
         List<MusicoMensaje> misMensajes = musicoServiceImpl.findMusicoMensajeByMusico(id);

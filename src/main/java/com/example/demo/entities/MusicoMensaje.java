@@ -5,6 +5,8 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.Date;
+
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
@@ -28,4 +30,6 @@ public class MusicoMensaje {
     //private Mensaje mensaje;
 
     private String cuerpoMensaje;
+
+    private Date fechaEnvio;
 }
