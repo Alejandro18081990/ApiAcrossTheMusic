@@ -1,6 +1,7 @@
 package com.example.demo.controllers;
 
 import com.example.demo.dto.musicoDto.MusicoDTO;
+import com.example.demo.dto.musicoDto.MusicoDetalleMensajeDTO;
 import com.example.demo.dto.musicoDto.MusicoDtoConverter;
 import com.example.demo.dto.musicoMensajeDTO.MusicoMensajeDTO;
 import com.example.demo.dto.musicoMensajeDTO.MusicoMensajeDTOConverter;
@@ -79,10 +80,14 @@ public class MusicoMensajeController implements ControllerInterface<MusicoMensaj
 
     @GetMapping("/{id}")
     @Operation(summary = "Devuelve todos los registros de MusicoMensaje que coinciden con la idMusico recibida")
-    public ResponseEntity<List<MusicoMensaje>> findMusicoMensajeByMusido(@PathVariable Long id) {
+    public ResponseEntity<List<MusicoMensajeDTO>> findMusicoMensajeByMusido(@PathVariable Long id) {
         if (id == null)
             return ResponseEntity.noContent().build();
-        return ResponseEntity.ok(musicoServiceImpl.findMusicoMensajeByMusico(id));
+        List<MusicoMensaje> misMensajes = musicoServiceImpl.findMusicoMensajeByMusico(id);
+        List<MusicoMensajeDTO> misMensajesDTO = new ArrayList<>();
+        for (MusicoMensaje mm : misMensajes)
+            misMensajesDTO.add(musicoMensajeDTOConverter.convertirDto(mm));
+        return ResponseEntity.ok(misMensajesDTO);
     }
 }
 

@@ -123,3 +123,11 @@ INSERT INTO MENSAJE (mensaje) VALUES("Hola");
 
 --INSERT INTO MENSAJE (mensaje) VALUES("Hola");
 INSERT INTO MUSICO_MENSAJE (musico_remitente,musico_destinatario,cuerpo_mensaje) VALUES(1,12,"¿Hola qué tal?");
+INSERT INTO MUSICO_MENSAJE (musico_remitente,musico_destinatario,cuerpo_mensaje) VALUES(1,12,"¿Hola qué tal?");
+INSERT INTO MUSICO_MENSAJE (musico_remitente,musico_destinatario,cuerpo_mensaje) VALUES(2,12,"¿Hola qué tal?");
+INSERT INTO MUSICO_MENSAJE (musico_remitente,musico_destinatario,cuerpo_mensaje) VALUES(2,12,"¿Hola qué tal?");
+INSERT INTO MUSICO_MENSAJE (musico_remitente,musico_destinatario,cuerpo_mensaje) VALUES(3,12,"Músicos!!");
+INSERT INTO MUSICO_MENSAJE (musico_remitente,musico_destinatario,cuerpo_mensaje) VALUES(4,12,"Músicos!!");
+INSERT INTO MUSICO_MENSAJE (musico_remitente,musico_destinatario,cuerpo_mensaje) VALUES(5,12,"Hacen falta músicos con urgencia");
+INSERT INTO MUSICO_MENSAJE (musico_remitente,musico_destinatario,cuerpo_mensaje) VALUES(2,12,"Busco músico para concierto");
+INSERT INTO MUSICO_MENSAJE (musico_remitente,musico_destinatario,cuerpo_mensaje) VALUES(5,12,"Buscamos músicos");
