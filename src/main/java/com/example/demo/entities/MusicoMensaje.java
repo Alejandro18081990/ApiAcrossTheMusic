@@ -17,13 +17,15 @@ public class MusicoMensaje {
 
     @ManyToOne
     @JoinColumn(name = "musicoRemitente")
-
     private Musico musicoRemitente;
+
     @ManyToOne
     @JoinColumn(name = "musicoDestinatario")
     private Musico musicoDestinatario;
 
-    @ManyToOne
-    @JoinColumn(name = "mensaje")
-    private Mensaje mensaje;
+    //@ManyToOne
+    //@JoinColumn(name = "mensaje")
+    //private Mensaje mensaje;
+
+    private String cuerpoMensaje;
 }

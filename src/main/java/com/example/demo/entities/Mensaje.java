@@ -23,8 +23,8 @@ public class Mensaje {
     @Column(length = 200)
     private String mensaje;
 
-    @OneToMany(mappedBy = "mensaje")
-    private Set<MusicoMensaje> musicoMensaje;
+    //@OneToMany(mappedBy = "mensaje")
+    //private Set<MusicoMensaje> musicoMensaje;
 
 
 }
