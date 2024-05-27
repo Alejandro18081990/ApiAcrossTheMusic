@@ -14,7 +14,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -28,7 +27,7 @@ public class MusicoMensajeController implements ControllerInterface<MusicoMensaj
 
     private static final Logger log = LoggerFactory.getLogger(MusicoMensajeController.class);
     @Autowired
-    private final MusicoMensajeServiceImpl musicoServiceImpl;
+    private final MusicoMensajeServiceImpl musicoMensajeServiceImpl;
     @Autowired
     private MusicoMensajeDTOConverter musicoMensajeDTOConverter;
 
@@ -39,7 +38,7 @@ public class MusicoMensajeController implements ControllerInterface<MusicoMensaj
     @Operation(summary = "Devuelve todos los registros de MusicoMensaje")
     @GetMapping("/")
     public ResponseEntity<List<MusicoMensajeDTO>> getAll() {
-        Iterable<MusicoMensaje> listaMusicoMensaje = musicoServiceImpl.findAll();
+        Iterable<MusicoMensaje> listaMusicoMensaje = musicoMensajeServiceImpl.findAll();
         List<MusicoMensajeDTO> listaMusicoMensajeDTO = new ArrayList<>();
         for (MusicoMensaje mm : listaMusicoMensaje)
             listaMusicoMensajeDTO.add(musicoMensajeDTOConverter.convertirDto(mm));
@@ -53,17 +52,25 @@ public class MusicoMensajeController implements ControllerInterface<MusicoMensaj
         if (musicoMensaje == null)
             return ResponseEntity.noContent().build();
         musicoMensaje.setFechaEnvio(new Date());
-        return ResponseEntity.ok(musicoServiceImpl.save(musicoMensaje));
+        return ResponseEntity.ok(musicoMensajeServiceImpl.save(musicoMensaje));
     }
 
     @Override
-    public void delete(Long id) {
-
+    @Operation(summary = "Borra un mensaje por su id")
+    @DeleteMapping("{id}")
+    public void delete(@PathVariable Long id) {
+        musicoMensajeServiceImpl.delete(id);
     }
 
     @Override
-    public ResponseEntity<MusicoMensaje> update(MusicoMensaje musicoMensaje) {
-        return null;
+    @PutMapping("mensajeMod/")
+    public ResponseEntity<MusicoMensaje> update(@RequestBody MusicoMensaje musicoMensaje) {
+        MusicoMensaje mm = musicoMensajeServiceImpl.findById(musicoMensaje.getId()).get();
+        mm.setFechaEnvio(musicoMensaje.getFechaEnvio());
+        System.out.println("Antes " + mm.isLeido());
+        mm.setLeido(musicoMensaje.isLeido());
+        System.out.println("Después "+mm.isLeido());
+        return ResponseEntity.ok(musicoMensajeServiceImpl.save(mm));
     }
 
     @Override
@@ -76,7 +83,7 @@ public class MusicoMensajeController implements ControllerInterface<MusicoMensaj
     public ResponseEntity<List<MusicoMensajeDTO>> findMusicoMensajeByMusicoId(@PathVariable Long id) {
         if (id == null)
             return ResponseEntity.noContent().build();
-        List<MusicoMensaje> misMensajes = musicoServiceImpl.findMusicoMensajeByMusico(id);
+        List<MusicoMensaje> misMensajes = musicoMensajeServiceImpl.findMusicoMensajeByMusico(id);
         List<MusicoMensajeDTO> misMensajesDTO = new ArrayList<>();
 
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm");

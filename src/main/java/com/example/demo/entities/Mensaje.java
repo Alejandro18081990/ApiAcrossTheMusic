@@ -23,6 +23,9 @@ public class Mensaje {
     @Column(length = 200)
     private String mensaje;
 
+
+    private boolean leido;
+
     //@OneToMany(mappedBy = "mensaje")
     //private Set<MusicoMensaje> musicoMensaje;
 

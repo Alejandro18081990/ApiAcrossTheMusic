@@ -5,15 +5,16 @@ import lombok.Getter;
 import lombok.Setter;
 import org.springframework.stereotype.Component;
 
-import java.util.Date;
 
 @Component
 @Getter
 @Setter
 public class MusicoMensajeDTO {
 
+    private Long id;
     private MusicoDetalleMensajeDTO musicoRemitente;
     private MusicoDetalleMensajeDTO musicoDestinatario;
     private String cuerpoMensaje;
     private String fechaEnvio ;
+    private boolean leido;
 }
