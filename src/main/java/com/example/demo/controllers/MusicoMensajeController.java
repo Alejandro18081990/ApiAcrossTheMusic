@@ -66,10 +66,7 @@ public class MusicoMensajeController implements ControllerInterface<MusicoMensaj
     @PutMapping("mensajeMod/")
     public ResponseEntity<MusicoMensaje> update(@RequestBody MusicoMensaje musicoMensaje) {
         MusicoMensaje mm = musicoMensajeServiceImpl.findById(musicoMensaje.getId()).get();
-        mm.setFechaEnvio(musicoMensaje.getFechaEnvio());
-        System.out.println("Antes " + mm.isLeido());
         mm.setLeido(musicoMensaje.isLeido());
-        System.out.println("Después "+mm.isLeido());
         return ResponseEntity.ok(musicoMensajeServiceImpl.save(mm));
     }
 
