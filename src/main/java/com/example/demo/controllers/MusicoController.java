@@ -93,7 +93,6 @@ public class MusicoController implements ControllerInterface<Musico, MusicoDTO> 
     @PutMapping("musico/")
     public ResponseEntity<Musico> update(@RequestBody Musico musicoDetails) {
         Musico musicoAModificar = musicoServiceImpl.findMusicoByEmail(musicoDetails.getEmail());
-        System.out.println(musicoAModificar);
         if (musicoAModificar == null)
             return ResponseEntity.noContent().build();
         musicoAModificar.setNombre(musicoDetails.getNombre());

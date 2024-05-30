@@ -1,9 +1,7 @@
 package com.example.demo.services;
 
-import com.example.demo.entities.Mensaje;
 import com.example.demo.entities.MusicoMensaje;
 import com.example.demo.interfaces.ServiceInterface;
-import com.example.demo.repositorios.MensajeRepository;
 import com.example.demo.repositorios.MusicoMensajeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -44,7 +42,11 @@ public class MusicoMensajeServiceImpl implements ServiceInterface<MusicoMensaje>
         musicoMensajeRepository.deleteById(id);
     }
 
-    public List<MusicoMensaje> findMusicoMensajeByMusico(Long id) {
+    public List<MusicoMensaje> findMusicoMensajeByMusicoDestinatario(Long id) {
         return musicoMensajeRepository.findMusicoMensajeByMusicoDestinatarioIdMusico(id);
+    }
+
+    public List<MusicoMensaje>findMusicoMensajeByMusicoRemitente(Long id){
+        return musicoMensajeRepository.findMusicoMensajeByMusicoRemitenteIdMusico(id);
     }
 }

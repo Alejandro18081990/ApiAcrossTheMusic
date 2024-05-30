@@ -1,6 +1,7 @@
 package com.example.demo.entities;
 
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -25,6 +26,7 @@ public class JamSession {
     @JoinColumn(name = "idEstilo")
     private Estilo estilo;
 
+    @JsonFormat(pattern = "yyyy-MM-dd")
     private Date fecha;
 
     private String lugar;

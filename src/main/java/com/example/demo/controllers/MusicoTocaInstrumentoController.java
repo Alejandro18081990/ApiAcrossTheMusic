@@ -50,7 +50,8 @@ public class MusicoTocaInstrumentoController implements ControllerInterface<Musi
     @PostMapping("/")
     @Override
     public ResponseEntity<MusicoTocaInstrumento> save(@RequestBody MusicoTocaInstrumento musicoTocaInstrumento) {
-        System.out.println(musicoTocaInstrumento.getMusico());
+        System.out.println(musicoTocaInstrumento.getMusico().getEmail());
+        System.out.println(musicoTocaInstrumento.getInstrumento().getNombreInstrumento());
         MusicoTocaInstrumento newMTI = musicoTocaInstrumentoRepository.save(musicoTocaInstrumento);
         return ResponseEntity.status(HttpStatus.CREATED).body(newMTI);
     }

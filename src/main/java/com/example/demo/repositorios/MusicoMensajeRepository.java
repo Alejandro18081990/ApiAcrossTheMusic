@@ -11,4 +11,6 @@ import java.util.List;
 public interface MusicoMensajeRepository extends JpaRepository<MusicoMensaje, Long> {
 
     List<MusicoMensaje> findMusicoMensajeByMusicoDestinatarioIdMusico(Long id);
+
+    List<MusicoMensaje> findMusicoMensajeByMusicoRemitenteIdMusico(Long id);
 }

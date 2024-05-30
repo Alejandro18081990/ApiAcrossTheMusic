@@ -57,7 +57,7 @@ public class MusicoMensajeController implements ControllerInterface<MusicoMensaj
 
     @Override
     @Operation(summary = "Borra un mensaje por su id")
-    @DeleteMapping("{id}")
+    @DeleteMapping("/{id}")
     public void delete(@PathVariable Long id) {
         musicoMensajeServiceImpl.delete(id);
     }
@@ -77,10 +77,28 @@ public class MusicoMensajeController implements ControllerInterface<MusicoMensaj
 
     @GetMapping("/{id}")
     @Operation(summary = "Devuelve todos los registros de MusicoMensaje que coinciden con la idMusico recibida")
-    public ResponseEntity<List<MusicoMensajeDTO>> findMusicoMensajeByMusicoId(@PathVariable Long id) {
+    public ResponseEntity<List<MusicoMensajeDTO>> findMusicoMensajeByMusicoDestinatarioId(@PathVariable Long id) {
         if (id == null)
             return ResponseEntity.noContent().build();
-        List<MusicoMensaje> misMensajes = musicoMensajeServiceImpl.findMusicoMensajeByMusico(id);
+        List<MusicoMensaje> misMensajes = musicoMensajeServiceImpl.findMusicoMensajeByMusicoDestinatario(id);
+        List<MusicoMensajeDTO> misMensajesDTO = new ArrayList<>();
+
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm");
+        for (MusicoMensaje mm : misMensajes) {
+            String fechaParseada = sdf.format(mm.getFechaEnvio());
+            MusicoMensajeDTO mmDTO = musicoMensajeDTOConverter.convertirDto(mm);
+            mmDTO.setFechaEnvio(fechaParseada);
+            misMensajesDTO.add(mmDTO);
+        }
+        return ResponseEntity.ok(misMensajesDTO);
+    }
+
+    @GetMapping("enviado/{id}")
+    @Operation(summary = "Devuelve todos los registros de MusicoMensaje que coinciden con la idMusico recibida")
+    public ResponseEntity<List<MusicoMensajeDTO>> findMusicoMensajeByMusicoRemitenteIdMusico(@PathVariable Long id) {
+        if (id == null)
+            return ResponseEntity.noContent().build();
+        List<MusicoMensaje> misMensajes = musicoMensajeServiceImpl.findMusicoMensajeByMusicoRemitente(id);
         List<MusicoMensajeDTO> misMensajesDTO = new ArrayList<>();
 
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm");

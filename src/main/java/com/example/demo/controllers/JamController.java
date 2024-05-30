@@ -55,6 +55,7 @@ public class JamController implements ControllerInterface<JamSession, JamSession
     @Operation(summary = "Guarda una jamSession")
     @PostMapping("/")
     public ResponseEntity<JamSession> save(@RequestBody JamSession jamSession) {
+        System.out.println("Fecha " + jamSession.getFecha());
         return ResponseEntity.ok(jamServiceImpl.save(jamSession));
     }
 
