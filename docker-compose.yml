@@ -9,10 +9,6 @@ services:
       DB_URL: jdbc:mysql://acrossthemusic:3306/across_the_music?createDatabaseIfNotExist=true
       DB_USER_NAME: root
       DB_PASSWORD: Admin
-    
-    depends_on:
-      acrossthemusic:
-        condition: service_healthy
   acrossthemusic:
     image: mysql:8.0.36
     ports:
