@@ -26,10 +26,6 @@ public class MusicoMensaje {
     @JoinColumn(name = "musicoDestinatario")
     private Musico musicoDestinatario;
 
-    //@ManyToOne
-    //@JoinColumn(name = "mensaje")
-    //private Mensaje mensaje;
-
     private String cuerpoMensaje;
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd HH:mm")
     private Date fechaEnvio;
