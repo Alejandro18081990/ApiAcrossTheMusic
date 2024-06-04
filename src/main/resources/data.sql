@@ -37,11 +37,11 @@ INSERT INTO instrumento (NOMBRE_instrumento) VALUES ("Tuba");
 INSERT INTO instrumento (NOMBRE_instrumento) VALUES ("Trompeta");
 INSERT INTO instrumento (NOMBRE_instrumento) VALUES ("Voz");
 
-INSERT INTO jam_session(nombre_jam,id_estilo,fecha) values("JamMetalera",1, ("2024-08-18 22:00:00"));
-INSERT INTO jam_session(nombre_jam,id_estilo,fecha) values("JamMetaleraClasica",4, ("2024-08-18 22:00:00"));
-INSERT INTO jam_session(nombre_jam,id_estilo,fecha) values("JamJazzera",5, ("2024-08-19 22:00:00"));
-INSERT INTO jam_session(nombre_jam,id_estilo,fecha) values("JamPopera",3, ("2024-08-28 22:00:00"));
-INSERT INTO jam_session(nombre_jam,id_estilo,fecha) values("JamBlusera",9, ("2024-08-10 22:00:00"));
+INSERT INTO jam_session(nombre_jam,id_estilo,fecha) values("jamMetalera",1, ("2024-08-18 22:00:00"));
+INSERT INTO jam_session(nombre_jam,id_estilo,fecha) values("jamMetaleraClasica",4, ("2024-08-18 22:00:00"));
+INSERT INTO jam_session(nombre_jam,id_estilo,fecha) values("jamJazzera",5, ("2024-08-19 22:00:00"));
+INSERT INTO jam_session(nombre_jam,id_estilo,fecha) values("jamPopera",3, ("2024-08-28 22:00:00"));
+INSERT INTO jam_session(nombre_jam,id_estilo,fecha) values("jamBlusera",9, ("2024-08-10 22:00:00"));
 
 INSERT INTO grupo(nombre_grupo,anio_formacion)values("Hybernia",1999);
 
@@ -91,14 +91,14 @@ insert into musico_toca_estilo (musico,estilo) values (12,3);
 insert into musico_toca_estilo (musico,estilo) values (12,1);
 
 
-INSERT INTO musico_toca_JAM(id_musico,id_jam_session) values(1,1);
-INSERT INTO musico_toca_JAM(id_musico,id_jam_session) values(2,2);
-INSERT INTO musico_toca_JAM(id_musico,id_jam_session) values(3,2);
-INSERT INTO musico_toca_JAM(id_musico,id_jam_session) values(4,2);
-INSERT INTO musico_toca_JAM(id_musico,id_jam_session) values(5,1);
-INSERT INTO musico_toca_JAM(id_musico,id_jam_session) values(5,3);
-INSERT INTO musico_toca_JAM(id_musico,id_jam_session) values(5,4);
-INSERT INTO musico_toca_JAM(id_musico,id_jam_session) values(5,5);
+INSERT INTO musico_toca_jam(id_musico,id_jam_session) values(1,1);
+INSERT INTO musico_toca_jam(id_musico,id_jam_session) values(2,2);
+INSERT INTO musico_toca_jam(id_musico,id_jam_session) values(3,2);
+INSERT INTO musico_toca_jam(id_musico,id_jam_session) values(4,2);
+INSERT INTO musico_toca_jam(id_musico,id_jam_session) values(5,1);
+INSERT INTO musico_toca_jam(id_musico,id_jam_session) values(5,3);
+INSERT INTO musico_toca_jam(id_musico,id_jam_session) values(5,4);
+INSERT INTO musico_toca_jam(id_musico,id_jam_session) values(5,5);
 
 INSERT INTO musico_toca_grupo(idmusico,idgrupo) values(1,1);
 INSERT INTO musico_toca_grupo(idmusico,idgrupo) values(8,1);
