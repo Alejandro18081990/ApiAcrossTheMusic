@@ -88,6 +88,7 @@ public class JamController implements ControllerInterface<JamSession, JamSession
         jam.setNombreJam(jamDetails.getNombreJam());
         jam.setEstilo(jamDetails.getEstilo());
         jam.setFecha(jamDetails.getFecha());
+        jam.setLugar(jamDetails.getLugar());
         return ResponseEntity.ok(jamServiceImpl.save(jam));
     }
 

@@ -1,15 +1,2 @@
 =======================================Tareas=======================================
-
-1. Mira el último commit para comprobar lo implementado el último día.
-2. Si añado un músico, desde la interfaz de usuario he de pasar un objeto Musico,
-un objeto instrumento y un objeto Estilo para así poder guardar
-todos los datos de un Musico.
-Valorar si desde Android Studio sería recomendable hacer diferentes post
-a diferentes tablas:
-    Por un lado a Musico
-    Otra peticion para Estilo
-    Otra peticion para instrumento
-3. Valorar añadir posible filtrado por experiencia. Es importante poder buscar músicos
-experimentados. Solo tendría que implementar una consulta que busque a partir de un número.
-Músicos.aniosExperiencia > 5
-5. Terminar los controladores de MusicoTocaInstrumento , MusicoTocaEstilo Y MusicoTocaJam
+1. Terminar controladores y api

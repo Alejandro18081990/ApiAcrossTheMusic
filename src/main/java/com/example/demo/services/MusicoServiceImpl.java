@@ -20,22 +20,19 @@ public class MusicoServiceImpl implements ServiceInterface<Musico> {
 
     @Override
     public Iterable<Musico> findAll() {
+
         return musicoRepository.findAll();
     }
 
     @Override
-    public Page<Musico> findAll(Pageable pageable) {
-        // TODO Auto-generated method stub
-        return null;
-    }
-
-    @Override
     public void delete(long id) {
+
         musicoRepository.deleteById(id);
     }
 
     @Override
     public Optional<Musico> findById(Long id) {
+
         return musicoRepository.findById(id);
     }
 
@@ -55,5 +52,10 @@ public class MusicoServiceImpl implements ServiceInterface<Musico> {
 
     public Musico findMusicoByEmail(String email) {
         return musicoRepository.findMusicoByEmail(email);
+    }
+
+    @Override
+    public Page<Musico> findAll(Pageable pageable) {
+        return null;
     }
 }

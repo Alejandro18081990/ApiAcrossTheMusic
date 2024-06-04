@@ -12,7 +12,8 @@
 	<groupId>com.example</groupId>
 	<artifactId>ApiAcrossMusic</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>ApiAcrossMusic</name>
+	<packaging>jar</packaging>
+	<name>apiacrossthemusic</name>
 	<description>Demo project for Spring Boot</description>
 	<properties>
 		<java.version>17</java.version>
