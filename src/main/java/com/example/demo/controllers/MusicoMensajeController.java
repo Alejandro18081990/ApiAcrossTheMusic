@@ -16,6 +16,9 @@ import org.springframework.web.bind.annotation.*;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.time.LocalDateTime;
+import java.time.ZoneId;
+import java.time.ZonedDateTime;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -53,15 +56,9 @@ public class MusicoMensajeController implements ControllerInterface<MusicoMensaj
     public ResponseEntity<MusicoMensaje> save(@RequestBody MusicoMensaje musicoMensaje) {
         if (musicoMensaje == null)
             return ResponseEntity.noContent().build();
-        TimeZone tz = TimeZone.getTimeZone("Europe/Madrid");
-        SimpleDateFormat sdf = new SimpleDateFormat();
-        sdf.setTimeZone(tz);
-        String fecha = sdf.format(new Date());
-        try {
-            musicoMensaje.setFechaEnvio(sdf.parse(fecha));
-        } catch (ParseException e) {
-            System.out.println(e.getMessage());
-        }
+        ZonedDateTime nowInMadrid = ZonedDateTime.now(ZoneId.of("Europe/Madrid"));
+        Date fechaActual = Date.from(nowInMadrid.toInstant());
+        musicoMensaje.setFechaEnvio(fechaActual);
         return ResponseEntity.ok(musicoMensajeServiceImpl.save(musicoMensaje));
     }
 
