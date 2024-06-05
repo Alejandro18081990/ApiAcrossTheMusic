@@ -60,7 +60,7 @@ public class MusicoMensajeController implements ControllerInterface<MusicoMensaj
         try {
             musicoMensaje.setFechaEnvio(sdf.parse(fecha));
         } catch (ParseException e) {
-            throw new RuntimeException(e);
+            System.out.println(e.getMessage());
         }
         return ResponseEntity.ok(musicoMensajeServiceImpl.save(musicoMensaje));
     }
