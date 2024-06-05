@@ -14,10 +14,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.TimeZone;
 
 @RestController
 @RequiredArgsConstructor
@@ -51,7 +53,15 @@ public class MusicoMensajeController implements ControllerInterface<MusicoMensaj
     public ResponseEntity<MusicoMensaje> save(@RequestBody MusicoMensaje musicoMensaje) {
         if (musicoMensaje == null)
             return ResponseEntity.noContent().build();
-        musicoMensaje.setFechaEnvio(new Date());
+        TimeZone tz = TimeZone.getTimeZone("Europe/Madrid");
+        SimpleDateFormat sdf = new SimpleDateFormat();
+        sdf.setTimeZone(tz);
+        String fecha = sdf.format(new Date());
+        try {
+            musicoMensaje.setFechaEnvio(sdf.parse(fecha));
+        } catch (ParseException e) {
+            throw new RuntimeException(e);
+        }
         return ResponseEntity.ok(musicoMensajeServiceImpl.save(musicoMensaje));
     }
 
