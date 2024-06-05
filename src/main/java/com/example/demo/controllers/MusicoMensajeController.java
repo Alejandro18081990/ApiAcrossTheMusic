@@ -58,11 +58,11 @@ public class MusicoMensajeController implements ControllerInterface<MusicoMensaj
     public ResponseEntity<MusicoMensaje> save(@RequestBody MusicoMensaje musicoMensaje) {
         if (musicoMensaje == null)
             return ResponseEntity.noContent().build();
-        ZonedDateTime nowInMadrid = ZonedDateTime.now(ZoneId.of("Europe/Madrid"));
-        ZonedDateTime twoHoursLater = nowInMadrid.plus(2, ChronoUnit.HOURS);
-        Instant instant = twoHoursLater.toInstant();
-        Date date = Date.from(instant);
-        musicoMensaje.setFechaEnvio(date);
+        Date fechaActual = new Date();
+        long dosHorasEnMilisegundos = 2 * 60 * 60 * 1000;
+        long fechaEnMilisegundos = fechaActual.getTime() + dosHorasEnMilisegundos;
+        Date fechaEnDosHoras = new Date(fechaEnMilisegundos);
+        musicoMensaje.setFechaEnvio(fechaEnDosHoras);
         return ResponseEntity.ok(musicoMensajeServiceImpl.save(musicoMensaje));
     }
 
