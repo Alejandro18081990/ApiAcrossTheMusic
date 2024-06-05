@@ -19,6 +19,7 @@ import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
 import java.time.ZoneId;
 import java.time.ZonedDateTime;
+import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -57,8 +58,9 @@ public class MusicoMensajeController implements ControllerInterface<MusicoMensaj
         if (musicoMensaje == null)
             return ResponseEntity.noContent().build();
         ZonedDateTime nowInMadrid = ZonedDateTime.now(ZoneId.of("Europe/Madrid"));
-        Date fechaActual = Date.from(nowInMadrid.toInstant());
-        musicoMensaje.setFechaEnvio(fechaActual);
+        ZonedDateTime twoHoursLater = nowInMadrid.plus(2, ChronoUnit.HOURS);
+        Date date = Date.from(twoHoursLater.toInstant());
+        musicoMensaje.setFechaEnvio(date);
         return ResponseEntity.ok(musicoMensajeServiceImpl.save(musicoMensaje));
     }
 
