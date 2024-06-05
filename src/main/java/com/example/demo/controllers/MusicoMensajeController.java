@@ -58,11 +58,7 @@ public class MusicoMensajeController implements ControllerInterface<MusicoMensaj
     public ResponseEntity<MusicoMensaje> save(@RequestBody MusicoMensaje musicoMensaje) {
         if (musicoMensaje == null)
             return ResponseEntity.noContent().build();
-        Date fechaActual = new Date();
-        long dosHorasEnMilisegundos = 2 * 60 * 60 * 1000;
-        long fechaEnMilisegundos = fechaActual.getTime() + dosHorasEnMilisegundos;
-        Date fechaEnDosHoras = new Date(fechaEnMilisegundos);
-        musicoMensaje.setFechaEnvio(fechaEnDosHoras);
+        musicoMensaje.setFechaEnvio(new Date());
         return ResponseEntity.ok(musicoMensajeServiceImpl.save(musicoMensaje));
     }
 
