@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.time.Instant;
 import java.time.LocalDateTime;
 import java.time.ZoneId;
 import java.time.ZonedDateTime;
@@ -59,7 +60,8 @@ public class MusicoMensajeController implements ControllerInterface<MusicoMensaj
             return ResponseEntity.noContent().build();
         ZonedDateTime nowInMadrid = ZonedDateTime.now(ZoneId.of("Europe/Madrid"));
         ZonedDateTime twoHoursLater = nowInMadrid.plus(2, ChronoUnit.HOURS);
-        Date date = Date.from(twoHoursLater.toInstant());
+        Instant instant = twoHoursLater.toInstant();
+        Date date = Date.from(instant);
         musicoMensaje.setFechaEnvio(date);
         return ResponseEntity.ok(musicoMensajeServiceImpl.save(musicoMensaje));
     }

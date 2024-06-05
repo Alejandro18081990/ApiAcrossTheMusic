@@ -6,7 +6,7 @@ import org.springframework.boot.autoconfigure.domain.EntityScan;
 
 @SpringBootApplication
 @EntityScan(basePackages = {"com.example.demo.entities"})
-public class ApiAcrossMusicApplication {
+	public class ApiAcrossMusicApplication {
 	
 	public static void main(String[] args) {
 		SpringApplication.run(ApiAcrossMusicApplication.class, args);
