@@ -58,7 +58,6 @@ public class MusicoMensajeController implements ControllerInterface<MusicoMensaj
     public ResponseEntity<MusicoMensaje> save(@RequestBody MusicoMensaje musicoMensaje) {
         if (musicoMensaje == null)
             return ResponseEntity.noContent().build();
-        musicoMensaje.setFechaEnvio(new Date());
         return ResponseEntity.ok(musicoMensajeServiceImpl.save(musicoMensaje));
     }
 
