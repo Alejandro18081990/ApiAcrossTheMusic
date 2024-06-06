@@ -88,12 +88,8 @@ public class MusicoMensajeController implements ControllerInterface<MusicoMensaj
             return ResponseEntity.noContent().build();
         List<MusicoMensaje> misMensajes = musicoMensajeServiceImpl.findMusicoMensajeByMusicoDestinatario(id);
         List<MusicoMensajeDTO> misMensajesDTO = new ArrayList<>();
-
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm");
         for (MusicoMensaje mm : misMensajes) {
-            String fechaParseada = sdf.format(mm.getFechaEnvio());
             MusicoMensajeDTO mmDTO = musicoMensajeDTOConverter.convertirDto(mm);
-            mmDTO.setFechaEnvio(fechaParseada);
             misMensajesDTO.add(mmDTO);
         }
         return ResponseEntity.ok(misMensajesDTO);
