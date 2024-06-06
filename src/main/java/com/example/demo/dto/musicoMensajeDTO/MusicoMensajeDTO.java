@@ -1,6 +1,7 @@
 package com.example.demo.dto.musicoMensajeDTO;
 
 import com.example.demo.dto.musicoDto.MusicoDetalleMensajeDTO;
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Getter;
 import lombok.Setter;
 import org.springframework.stereotype.Component;
@@ -15,6 +16,7 @@ public class MusicoMensajeDTO {
     private MusicoDetalleMensajeDTO musicoRemitente;
     private MusicoDetalleMensajeDTO musicoDestinatario;
     private String cuerpoMensaje;
+    @JsonFormat(pattern = "yyyy-MM-dd'T'HH:mm:ss'Z'")
     private String fechaEnvio ;
     private boolean leido;
 }

@@ -27,7 +27,7 @@ public class MusicoMensaje {
     private Musico musicoDestinatario;
 
     private String cuerpoMensaje;
-    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd HH:mm")
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm:ss'Z'")
     private Date fechaEnvio;
 
     private boolean leido;
