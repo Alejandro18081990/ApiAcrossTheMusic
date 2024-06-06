@@ -16,7 +16,6 @@ public class MusicoMensajeDTO {
     private MusicoDetalleMensajeDTO musicoRemitente;
     private MusicoDetalleMensajeDTO musicoDestinatario;
     private String cuerpoMensaje;
-    //@JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss.SSSZ")
     private String fechaEnvio ;
     private boolean leido;
 }
