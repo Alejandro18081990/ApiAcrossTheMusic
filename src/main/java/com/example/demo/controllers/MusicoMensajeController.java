@@ -69,7 +69,7 @@ public class MusicoMensajeController implements ControllerInterface<MusicoMensaj
     }
 
 
-    @Operation(summary = "Borrar musicoMensaje a través del id del musico")
+    @Operation(summary = "Borra todos los registros que coincidan con el id musico recibido")
     @DeleteMapping("/musico/{id}")
     public void deleteMusicoMensajeByMusico(@PathVariable Long id) {
         musicoMensajeServiceImpl.deletMusicoMensajeByMusico(id);
