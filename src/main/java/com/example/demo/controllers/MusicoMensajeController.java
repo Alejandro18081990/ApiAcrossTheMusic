@@ -68,6 +68,13 @@ public class MusicoMensajeController implements ControllerInterface<MusicoMensaj
         musicoMensajeServiceImpl.delete(id);
     }
 
+
+    @Operation(summary = "Borrar musicoMensaje a través del id del musico")
+    @DeleteMapping("/musico/{id}")
+    public void deleteMusicoMensajeByMusico(@PathVariable Long id) {
+        musicoMensajeServiceImpl.deletMusicoMensajeByMusico(id);
+    }
+
     @Override
     @PutMapping("mensajeMod/")
     public ResponseEntity<MusicoMensaje> update(@RequestBody MusicoMensaje musicoMensaje) {

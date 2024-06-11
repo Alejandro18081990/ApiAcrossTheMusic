@@ -46,7 +46,11 @@ public class MusicoMensajeServiceImpl implements ServiceInterface<MusicoMensaje>
         return musicoMensajeRepository.findMusicoMensajeByMusicoDestinatarioIdMusico(id);
     }
 
-    public List<MusicoMensaje>findMusicoMensajeByMusicoRemitente(Long id){
+    public List<MusicoMensaje> findMusicoMensajeByMusicoRemitente(Long id) {
         return musicoMensajeRepository.findMusicoMensajeByMusicoRemitenteIdMusico(id);
+    }
+
+    public void deletMusicoMensajeByMusico(Long id) {
+        musicoMensajeRepository.deleteMusicoMensajeByIdMusico(id);
     }
 }

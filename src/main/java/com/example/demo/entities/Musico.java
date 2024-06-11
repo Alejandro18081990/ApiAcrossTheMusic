@@ -46,9 +46,9 @@ public class Musico {
     @OneToMany(mappedBy = "musico")
     Set<MusicoTocaGrupo> musicoTocaGrupo;
 
-    @OneToMany(mappedBy = "musicoRemitente" , cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "musicoRemitente" )
     private Set<MusicoMensaje> musicoRemitente;
 
-    @OneToMany(mappedBy = "musicoDestinatario", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "musicoDestinatario")
     private Set<MusicoMensaje> musicoMensaje;
 }
