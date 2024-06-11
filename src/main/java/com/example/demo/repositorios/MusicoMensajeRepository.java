@@ -18,6 +18,6 @@ public interface MusicoMensajeRepository extends JpaRepository<MusicoMensaje, Lo
 
     @Modifying
     @Transactional
-    @Query("DELETE FROM MusicoMensaje mm WHERE mm.musicoDestinatario.idMusico = :id OR mm.musicoRemitente.idMusico = :id")
+    @Query("DELETE FROM musico_mensaje mm WHERE mm.musicoDestinatario.idMusico = :id OR mm.musicoRemitente.idMusico = :id")
     void deleteMusicoMensajeByIdMusico(Long id);
 }
