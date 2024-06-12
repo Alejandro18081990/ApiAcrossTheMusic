@@ -15,6 +15,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class MusicoTocaJamDTO {
 
+
     private MusicoDTO musico;
     private JamSessionDto jamSession;
 }

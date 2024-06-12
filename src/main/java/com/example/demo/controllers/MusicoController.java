@@ -102,6 +102,7 @@ public class MusicoController implements ControllerInterface<Musico, MusicoDTO> 
         musicoAModificar.setEmail(musicoDetails.getEmail());
         musicoAModificar.setEdad(musicoDetails.getEdad());
         musicoAModificar.setTieneFormacion(musicoDetails.isTieneFormacion());
+        musicoAModificar.setPermiso(musicoDetails.getPermiso());
         musicoAModificar.setFormacion(musicoDetails.getFormacion());
         return ResponseEntity.ok().body(musicoServiceImpl.save(musicoAModificar));
     }
